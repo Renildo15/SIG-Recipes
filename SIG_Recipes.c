@@ -13,8 +13,9 @@ void menuPrincipal (void);
 
 void menuSobre(void);
 int main(void) {
-    menuPrincipal();
     menuSobre();
+    menuPrincipal();
+    
     return 0;
 }
 void menuSobre(void) {
