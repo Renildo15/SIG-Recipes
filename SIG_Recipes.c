@@ -12,6 +12,7 @@
 void menuPrincipal (void);
 void cadastrarReceita (void);
 void consultarReceita (void);
+void consultarPreco (void);
 
 void menuSobre(void);
 int main(void) {
@@ -19,6 +20,7 @@ int main(void) {
     menuPrincipal();
     cadastrarReceita();
     consultarReceita();
+    consultarPreco();
     
     return 0;
 }
@@ -75,8 +77,8 @@ void menuPrincipal (void){
 	printf("///                                                                       ///\n");
 	printf("///           1. Cadastrar receitas                                       ///\n");
 	printf("///           2. Consultar receitas                                       ///\n");
-	printf("///           3. Consultar preços                                         ///\n");
-	printf("///           4. Estoque                                                  ///\n");
+	printf("///           3. Consultar preços das comidas                             ///\n");
+	printf("///           4. Controle de estoque                                      ///\n");
 	printf("///           5. Quebra de caixa                                          ///\n");
 	printf("///           0. Encerrar o programa                                      ///\n");
 	printf("///                                                                       ///\n");
@@ -138,6 +140,36 @@ void consultarReceita() {
 	printf("///           2. Buscar receitas por categoria                            ///\n");
 	printf("///           3. Buscar receita por ingrediente                           ///\n");
     printf("///           0. Encerrar                                                 ///\n");
+    printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void consultarPreco(){
+    system("clear");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =       Consultar Preços       = = = = =            ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+    printf("///                                                                       ///\n");
+	printf("///           1. Exibir tabela de preços                                  ///\n");
+	printf("///           2. Buscar preços por prato                                  ///\n");
+    printf("///           3. Buscar preços por categoria                              ///\n");
     printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
