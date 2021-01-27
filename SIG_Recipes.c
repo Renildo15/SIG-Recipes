@@ -23,7 +23,7 @@ int main(void) {
     return 0;
 }
 void menuSobre(void) {
-    system("cls");
+    system("clear");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -56,7 +56,7 @@ void menuSobre(void) {
 }
 
 void menuPrincipal (void){
-    system("cls");
+    system("clear");
     printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -73,12 +73,12 @@ void menuPrincipal (void){
 	printf("///           = = = = = = = =  Menu Principal = = = = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           1. Cadastrar receitas                                        ///\n");
-	printf("///           2. Consultar receitas                                        ///\n");
+	printf("///           1. Cadastrar receitas                                       ///\n");
+	printf("///           2. Consultar receitas                                       ///\n");
 	printf("///           3. Consultar preços                                         ///\n");
 	printf("///           4. Estoque                                                  ///\n");
 	printf("///           5. Quebra de caixa                                          ///\n");
-	printf("///           0. Encerrar o programa                                       ///\n");
+	printf("///           0. Encerrar o programa                                      ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
@@ -90,7 +90,7 @@ void menuPrincipal (void){
 }
 
 void cadastrarReceita(void){
-    system("cls");
+    system("clear");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
@@ -118,8 +118,8 @@ void cadastrarReceita(void){
 }
 
 void consultarReceita() {
-    system("cls");
-     printf("/////////////////////////////////////////////////////////////////////////////\n");
+    system("clear");
+    printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
@@ -137,7 +137,6 @@ void consultarReceita() {
 	printf("///           1. Buscar receita                                           ///\n");
 	printf("///           2. Buscar receitas por categoria                            ///\n");
 	printf("///           3. Buscar receita por ingrediente                           ///\n");
-	printf("///           4.                                                          ///\n");
     printf("///           0. Encerrar                                                 ///\n");
     printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
