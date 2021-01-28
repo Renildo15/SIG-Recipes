@@ -203,7 +203,7 @@ void controleEstoque() {
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///           = = = = =      Controle de Estoque    = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-    printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
 	printf("///           1. Analisar estoque                                         ///\n");
 	printf("///           2. Reabastecer o estoque                                    ///\n");
 	printf("///           3. Relatorio dos produtos                                   ///\n");
@@ -215,8 +215,8 @@ void controleEstoque() {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 
 
 }
@@ -246,7 +246,7 @@ void prepararReceita() {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 
 }
