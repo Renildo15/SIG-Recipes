@@ -13,6 +13,7 @@ void menuPrincipal (void);
 void cadastrarReceita (void);
 void consultarReceita (void);
 void consultarPreco (void);
+void controleEstoque (void);
 
 void menuSobre(void);
 int main(void) {
