@@ -14,14 +14,16 @@ void cadastrarReceita (void);
 void consultarReceita (void);
 void consultarPreco (void);
 void controleEstoque (void);
-
 void menuSobre(void);
+
 int main(void) {
     menuSobre();
     menuPrincipal();
     cadastrarReceita();
     consultarReceita();
     consultarPreco();
+	controleEstoque();
+
     
     return 0;
 }
@@ -80,7 +82,8 @@ void menuPrincipal (void){
 	printf("///           2. Consultar receitas                                       ///\n");
 	printf("///           3. Consultar preços das comidas                             ///\n");
 	printf("///           4. Controle de estoque                                      ///\n");
-	printf("///           5. Quebra de caixa                                          ///\n");
+	printf("///           5. Preparar a receita                                       ///\n");
+	printf("///           6. Quebra de caixa                                          ///\n");
 	printf("///           0. Encerrar o programa                                      ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
@@ -171,6 +174,39 @@ void consultarPreco(){
 	printf("///           1. Exibir tabela de preços                                  ///\n");
 	printf("///           2. Buscar preços por prato                                  ///\n");
     printf("///           3. Buscar preços por categoria                              ///\n");
+	printf("///           0. Encerrar                                                 ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
+}
+
+void controleEstoque() {
+	system("clear");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =      Controle de Estoque    = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+    printf("///                                                                       ///\n");
+	printf("///           1. Analisar estoque                                         ///\n");
+	printf("///           2. Reabastecer o estoque                                    ///\n");
+    printf("///           3. Relatorio dos produtos                                   ///\n");
+    printf("///           4. Criar promoções                                          ///\n");
+	printf("///           0. Encerrar                                                 ///\n");
     printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
@@ -179,4 +215,6 @@ void consultarPreco(){
 	printf("\n");
     printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
     getchar();
+
+
 }
