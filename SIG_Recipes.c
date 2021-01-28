@@ -23,8 +23,8 @@ int main(void) {
     cadastrarReceita();
     consultarReceita();
     consultarPreco();
-	controleEstoque();
-	prepararReceita();
+controleEstoque();
+prepararReceita();
 
     
     return 0;
@@ -159,7 +159,7 @@ void consultarReceita() {
 }
 
 void consultarPreco(){
-    system("clear");
+	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
