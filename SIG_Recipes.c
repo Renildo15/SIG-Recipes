@@ -98,7 +98,8 @@ void menuPrincipal (void){
 }
 
 void cadastrarReceita(void){
-    system("clear");
+	system("clear");
+	printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
@@ -126,7 +127,8 @@ void cadastrarReceita(void){
 }
 
 void consultarReceita() {
-    system("clear");
+	system("clear");
+	printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
@@ -141,23 +143,24 @@ void consultarReceita() {
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///           = = = = =      Consultar Receitas     = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-    printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
 	printf("///           1. Buscar receita                                           ///\n");
 	printf("///           2. Buscar receitas por categoria                            ///\n");
 	printf("///           3. Buscar receita por ingrediente                           ///\n");
-    printf("///           0. Encerrar                                                 ///\n");
-    printf("///                                                                       ///\n");
+	printf("///           0. Encerrar                                                 ///\n");
+	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
 
 void consultarPreco(){
     system("clear");
+	printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
@@ -172,10 +175,10 @@ void consultarPreco(){
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///           = = = = =       Consultar Preços       = = = = =            ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-    printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
 	printf("///           1. Exibir tabela de preços                                  ///\n");
 	printf("///           2. Buscar preços por prato                                  ///\n");
-    printf("///           3. Buscar preços por categoria                              ///\n");
+	printf("///            3. Buscar preços por categoria                             ///\n");
 	printf("///           0. Encerrar                                                 ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
@@ -183,12 +186,13 @@ void consultarPreco(){
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-    printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-    getchar();
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
 
 void controleEstoque() {
 	system("clear");
+	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
@@ -217,12 +221,11 @@ void controleEstoque() {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-
-
 }
 
 void prepararReceita() {
 	system("clear");
+	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
