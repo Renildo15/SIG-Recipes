@@ -23,8 +23,8 @@ int main(void) {
     cadastrarReceita();
     consultarReceita();
     consultarPreco();
-controleEstoque();
-prepararReceita();
+    controleEstoque();
+    prepararReceita();
 
     
     return 0;
