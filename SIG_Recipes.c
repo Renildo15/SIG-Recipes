@@ -16,6 +16,8 @@ void consultarPreco (void);
 void controleEstoque (void);
 void menuSobre(void);
 void prepararReceita(void);
+void orcamento(void);
+void fluxodeCaixa(void);
 
 int main(void) {
     menuSobre();
@@ -25,6 +27,8 @@ int main(void) {
     consultarPreco();
     controleEstoque();
     prepararReceita();
+	orcamento();
+	fluxodeCaixa();
 
     
     return 0;
@@ -148,7 +152,7 @@ void consultarReceita() {
 	printf("///           1. Buscar receita                                           ///\n");
 	printf("///           2. Buscar receitas por categoria                            ///\n");
 	printf("///           3. Buscar receita por ingrediente                           ///\n");
-	printf("///           0. Encerrar                                                 ///\n");
+	printf("///           0. Sair                                                     ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
@@ -179,8 +183,8 @@ void consultarPreco(){
 	printf("///                                                                       ///\n");
 	printf("///           1. Exibir tabela de preços                                  ///\n");
 	printf("///           2. Buscar preços por prato                                  ///\n");
-	printf("///           3. Buscar preços por categoria                             ///\n");
-	printf("///           0. Encerrar                                                 ///\n");
+	printf("///           3. Buscar preços por categoria                              ///\n");
+	printf("///           0. Sair                                                     ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
@@ -213,7 +217,7 @@ void controleEstoque() {
 	printf("///           2. Reabastecer o estoque                                    ///\n");
 	printf("///           3. Relatorio dos produtos                                   ///\n");
 	printf("///           4. Criar promoções                                          ///\n");
-	printf("///           0. Encerrar                                                 ///\n");
+	printf("///           0. Sair                                                     ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
@@ -253,4 +257,68 @@ void prepararReceita() {
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 
+}
+
+void orcamento(){
+	system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =           Orçamento         = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Diagnostico                                              ///\n");
+	printf("///           2. Analisar dados do orçamento                              ///\n");
+	printf("///           0. Sair                                                     ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+
+}
+
+void fluxodeCaixa(){
+	system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =         Fluxo de caixa      = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Relatorio de ganhos                                      ///\n");
+	printf("///           2. Relatorio de despesas                                    ///\n");
+	printf("///           3. Fluxo de Caixa                                           ///\n");
+	printf("///           0. Sair                                                     ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada:                                   ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
 }
