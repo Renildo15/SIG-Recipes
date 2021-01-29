@@ -85,7 +85,8 @@ void menuPrincipal (void){
 	printf("///           3. Consultar preços das comidas                             ///\n");
 	printf("///           4. Controle de estoque                                      ///\n");
 	printf("///           5. Preparar a receita                                       ///\n");
-	printf("///           6. Quebra de caixa                                          ///\n");
+	printf("///           6. Orçamento                                                ///\n");
+	printf("///           7. Fluxo de caixa                                           ///\n");
 	printf("///           0. Encerrar o programa                                      ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
@@ -178,7 +179,7 @@ void consultarPreco(){
 	printf("///                                                                       ///\n");
 	printf("///           1. Exibir tabela de preços                                  ///\n");
 	printf("///           2. Buscar preços por prato                                  ///\n");
-	printf("///            3. Buscar preços por categoria                             ///\n");
+	printf("///           3. Buscar preços por categoria                             ///\n");
 	printf("///           0. Encerrar                                                 ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
