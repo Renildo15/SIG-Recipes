@@ -178,7 +178,7 @@ void consultarPreco(){
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = =       Consultar Preços       = = = = =            ///\n");
+	printf("///           = = = = =       Consultar Preços      = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           1. Exibir tabela de preços                                  ///\n");
