@@ -1,11 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-///             Universidade Federal do Rio Grande do Norte                 ///
-///                 Centro de Ensino Superior do Seridó                     ///
-///               Departamento de Computação e Tecnologia                   ///
-///                  Disciplina DCT1106 -- Programação                      ///
-///            Projeto Um Caderno  Virtual de Receitas Culinárias           ///
-///                Developed by  @R.Rabi - Jan, 2021                        ///
-///////////////////////////////////////////////////////////////////////////////
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -16,8 +8,6 @@ void consultarPreco (void);
 void controleEstoque (void);
 void menuSobre (void);
 void prepararReceita (void);
-void orcamento (void);
-void fluxodeCaixa (void);
 void buscarReceita (void);
 void buscarporCategoria (void);
 void buscaporIngrediente (void);
@@ -37,8 +27,6 @@ int main(void) {
     consultarPreco();
     controleEstoque();
     prepararReceita();
-	orcamento();
-	fluxodeCaixa();
 	buscarReceita();
 	buscarporCategoria();
 	buscaporIngrediente();
@@ -280,69 +268,6 @@ void prepararReceita() {
 
 }
 
-void orcamento(){
-	system("clear");
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = =           Orçamento         = = = = =             ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///                                                                       ///\n");
-	printf("///           1. Diagnostico                                              ///\n");
-	printf("///           2. Analisar dados do orçamento                              ///\n");
-	printf("///           0. Sair                                                     ///\n");
-	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada:                                   ///\n");
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
-	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-
-}
-
-void fluxodeCaixa(){
-	system("clear");
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = =         Fluxo de caixa      = = = = =             ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///                                                                       ///\n");
-	printf("///           1. Relatorio de ganhos                                      ///\n");
-	printf("///           2. Relatorio de despesas                                    ///\n");
-	printf("///           3. Fluxo de Caixa                                           ///\n");
-	printf("///           0. Sair                                                     ///\n");
-	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada:                                   ///\n");
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
-	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-}
 void buscarReceita(){
 	system("clear");
 	printf("\n");
@@ -451,7 +376,7 @@ void exibirTabela(){
 
 void precoporPrato(){
 	system("clear");
-	print("\n");
+	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
@@ -478,7 +403,7 @@ void precoporPrato(){
 
 void precoCategoria(){
 	system("clear");
-	print("\n");
+	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
@@ -535,7 +460,7 @@ void cadastrarProduto(){
 
 void analisarEstoque(){
 	system("clear");
-	print("\n");
+	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
@@ -562,7 +487,7 @@ void analisarEstoque(){
 
 void reabastecerEstoque(){
 	system("clear");
-	print("\n");
+	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
@@ -590,7 +515,7 @@ void reabastecerEstoque(){
 
 void relatorioProdutos(){
 	system("clear");
-	print("\n");
+	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
@@ -612,5 +537,4 @@ void relatorioProdutos(){
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-
 }
