@@ -29,10 +29,10 @@ int main(void) {
     consultarPreco();
     controleEstoque();
     prepararReceita();
-orcamento();
-fluxodeCaixa();
-buscarReceita();
-buscarporCategoria();
+	orcamento();
+	fluxodeCaixa();
+	buscarReceita();
+	buscarporCategoria();
 
     
     return 0;
