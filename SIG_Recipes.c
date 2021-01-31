@@ -98,8 +98,6 @@ void menuPrincipal (void){
 	printf("///           3. Consultar preços das comidas                             ///\n");
 	printf("///           4. Controle de estoque                                      ///\n");
 	printf("///           5. Preparar a receita                                       ///\n");
-	printf("///           6. Orçamento                                                ///\n");
-	printf("///           7. Fluxo de caixa                                           ///\n");
 	printf("///           0. Encerrar o programa                                      ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada:                                   ///\n");
