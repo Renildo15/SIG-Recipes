@@ -112,6 +112,11 @@ void menuPrincipal (void){
 }
 
 void cadastrarReceita(void){
+	char nomePrato[20];
+	char Ingredientes[100];
+	float preco;
+	char categoria[20];
+
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -435,6 +440,11 @@ void precoCategoria(){
 }
 
 void cadastrarProduto(){
+	char produto[20];
+	int data;
+	float valor;
+	int quantidade;
+	
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
