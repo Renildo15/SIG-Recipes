@@ -76,6 +76,7 @@ void menuSobre(void) {
 }
 
 void menuPrincipal (void){
+	int opcao;
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -100,11 +101,12 @@ void menuPrincipal (void){
 	printf("///           5. Preparar a receita                                       ///\n");
 	printf("///           0. Encerrar o programa                                      ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
+	printf("Escolha a opção desejada: ");
+	scanf("%i", &opcao);
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
@@ -139,6 +141,7 @@ void cadastrarReceita(void){
 }
 
 void consultarReceita() {
+	int opcao;
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -161,16 +164,18 @@ void consultarReceita() {
 	printf("///           3. Buscar receita por ingrediente                           ///\n");
 	printf("///           0. Sair                                                     ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
+	printf(" Escolha a opção desejada:" );
+	scanf("%i", &opcao);
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
 
 void consultarPreco(){
+	int opcao;
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -193,16 +198,18 @@ void consultarPreco(){
 	printf("///           3. Buscar preços por categoria                              ///\n");
 	printf("///           0. Sair                                                     ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
+	printf(" Escolha a opção desejada: ");
+	scanf("%i", &opcao);
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
 
 void controleEstoque() {
+	int opcao;
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -226,11 +233,12 @@ void controleEstoque() {
 	printf("///           4. Relatorio dos produtos                                   ///\n");
 	printf("///           0. Sair                                                     ///\n");
 	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada:                                   ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
+	printf(" Escolha a opção desejada: ");
+	scanf("%i", &opcao);
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
