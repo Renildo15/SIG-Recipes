@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void menuPrincipal (void);
+char menuPrincipal (void);
 void cadastrarReceita (void);
-void consultarReceita (void);
-void consultarPreco (void);
-void controleEstoque (void);
+char consultarReceita (void);
+char consultarPreco (void);
+char controleEstoque (void);
 void menuSobre (void);
 void prepararReceita (void);
 void buscarReceita (void);
@@ -20,12 +20,13 @@ void reabastecerEstoque (void);
 void relatorioProdutos (void);
 
 int main(void) {
+	char opcao;
     menuSobre();
-    menuPrincipal();
+    opcao = menuPrincipal();
     cadastrarReceita();
-    consultarReceita();
-    consultarPreco();
-    controleEstoque();
+    opcao = consultarReceita();
+    opcao = consultarPreco();
+    opcao = controleEstoque();
     prepararReceita();
 	buscarReceita();
 	buscarporCategoria();
@@ -72,7 +73,8 @@ void menuSobre(void) {
     getchar();
 }
 
-void menuPrincipal (void){
+char menuPrincipal (void){
+	char op;
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -103,6 +105,7 @@ void menuPrincipal (void){
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 }
 
 void cadastrarReceita(void){
@@ -139,7 +142,8 @@ void cadastrarReceita(void){
 	getchar();
 }
 
-void consultarReceita() {
+char consultarReceita() {
+	char op;
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -169,9 +173,10 @@ void consultarReceita() {
 	printf(" Escolha a opção desejada:" );
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 }
 
-void consultarPreco(){
+char consultarPreco(){
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -203,7 +208,8 @@ void consultarPreco(){
 	getchar();
 }
 
-void controleEstoque() {
+char controleEstoque() {
+	char op;
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -234,6 +240,7 @@ void controleEstoque() {
 	printf(" Escolha a opção desejada: ");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 }
 
 void prepararReceita() {
