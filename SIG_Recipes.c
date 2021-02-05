@@ -142,7 +142,7 @@ void cadastrarReceita(void){
 	getchar();
 }
 
-char consultarReceita() {
+char consultarReceita(void) {
 	char op;
 	system("clear");
 	printf("\n");
@@ -176,7 +176,8 @@ char consultarReceita() {
 	return op;
 }
 
-char consultarPreco(){
+char consultarPreco(void){
+	char op;
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -206,9 +207,10 @@ char consultarPreco(){
 	printf(" Escolha a opção desejada: ");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	return op;
 }
 
-char controleEstoque() {
+char controleEstoque(void) {
 	char op;
 	system("clear");
 	printf("\n");
@@ -243,7 +245,7 @@ char controleEstoque() {
 	return op;
 }
 
-void prepararReceita() {
+void prepararReceita(void) {
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -274,7 +276,7 @@ void prepararReceita() {
 
 }
 
-void buscarReceita(){
+void buscarReceita(void){
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -301,7 +303,7 @@ void buscarReceita(){
 
 }
 
-void buscarporCategoria(){
+void buscarporCategoria(void){
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -328,7 +330,7 @@ void buscarporCategoria(){
 
 }
 
-void buscaporIngrediente(){
+void buscaporIngrediente(void){
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -355,7 +357,7 @@ void buscaporIngrediente(){
 
 }
 
-void exibirTabela(){
+void exibirTabela(void){
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -380,7 +382,7 @@ void exibirTabela(){
 
 }
 
-void precoporPrato(){
+void precoporPrato(void){
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -407,7 +409,7 @@ void precoporPrato(){
 
 }
 
-void precoCategoria(){
+void precoCategoria(void){
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -434,7 +436,7 @@ void precoCategoria(){
 
 }
 
-void cadastrarProduto(){
+void cadastrarProduto(void){
 	char produto[20];
 	int data;
 	float valor;
@@ -469,7 +471,7 @@ void cadastrarProduto(){
 }
 
 
-void analisarEstoque(){
+void analisarEstoque(void){
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -496,7 +498,7 @@ void analisarEstoque(){
 
 }
 
-void reabastecerEstoque(){
+void reabastecerEstoque(void){
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -524,7 +526,7 @@ void reabastecerEstoque(){
 
 }
 
-void relatorioProdutos(){
+void relatorioProdutos(void){
 	system("clear");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
