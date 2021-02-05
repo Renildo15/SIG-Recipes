@@ -21,6 +21,7 @@ void relatorioProdutos (void);
 
 int main(void) {
 	char opcao;
+
     menuSobre();
     opcao = menuPrincipal();
     cadastrarReceita();
@@ -109,10 +110,10 @@ char menuPrincipal (void){
 }
 
 void cadastrarReceita(void){
-	char nomePrato[20];
-	char Ingredientes[100];
+	char nomePrato[21];
+	char Ingredientes[51];
 	float preco;
-	char categoria[20];
+	char categoria[21];
 
 	system("clear");
 	printf("\n");
