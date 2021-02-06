@@ -115,7 +115,7 @@ char menuPrincipal (void){
 void cadastrarReceita(void){
 	char nomePrato[21];
 	char Ingredientes[51];
-	char preco;
+	char preco [51];
 	char categoria[21];
 
 	system("clear");
@@ -142,7 +142,7 @@ void cadastrarReceita(void){
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", Ingredientes);
 	getchar();
 	printf("///             Preço: ");
-	scanf("%[0-9,.]", nomePrato);
+	scanf("%[0-9,.]", preco);
 	getchar();
 	printf("///             Categoria: ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", categoria);
@@ -179,7 +179,7 @@ char consultarReceita(void) {
 	printf("///           0. Sair                                                     ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada: ");
-	printf("%c", &op);
+	scanf("%c", &op);
 	getchar();
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
@@ -258,7 +258,6 @@ char controleEstoque(void) {
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
-	printf(" Escolha a opção desejada: ");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 	return op;
@@ -457,9 +456,9 @@ void precoCategoria(void){
 
 void cadastrarProduto(void){
 	char produto[20];
-	int data;
-	float valor;
-	int quantidade;
+	char data[21];
+	char valor[21];
+	char quantidade[101];
 	
 	system("clear");
 	printf("\n");
@@ -478,10 +477,18 @@ void cadastrarProduto(void){
 	printf("///           = = = = =      Cadastrar produto      = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///             Nome do produto:                                          ///\n");
-	printf("///             Data de Validade:                                         ///\n");
-	printf("///             Valor Pago:                                               ///\n");
-	printf("///             Quantidade:                                               ///\n");
+	printf("///             Nome do produto: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", produto);
+	getchar();
+	printf("///             Data de Validade: ");
+	scanf("%[0-9/]", data);
+	getchar();
+	printf("///             Valor Pago: ");
+	scanf("%[0-9,.]", valor);
+	getchar();
+	printf("///             Quantidade: ");
+	scanf("%[0-9,.]", valor);
+	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
