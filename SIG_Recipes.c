@@ -115,7 +115,7 @@ char menuPrincipal (void){
 void cadastrarReceita(void){
 	char nomePrato[21];
 	char Ingredientes[51];
-	float preco;
+	char preco;
 	char categoria[21];
 
 	system("clear");
@@ -135,10 +135,18 @@ void cadastrarReceita(void){
 	printf("///           = = = = =      Cadastrar Receitas     = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///             Nome do prato:                                            ///\n");
-	printf("///             Ingredientes:                                             ///\n");
-	printf("///             Preço:                                                    ///\n");
-	printf("///             Categoria:                                                ///\n");
+	printf("///             Nome do prato: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomePrato);
+	getchar();
+	printf("///             Ingredientes: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", Ingredientes);
+	getchar();
+	printf("///             Preço: ");
+	scanf("%[0-9,.]", nomePrato);
+	getchar();
+	printf("///             Categoria: ");
+	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", categoria);
+	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
