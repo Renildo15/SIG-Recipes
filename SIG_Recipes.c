@@ -115,7 +115,7 @@ char menuPrincipal (void){
 void cadastrarReceita(void){
 	char nomePrato[21];
 	char Ingredientes[51];
-	char preco [51];
+	char preco[51];
 	char categoria[21];
 
 	system("clear");
@@ -257,7 +257,7 @@ char controleEstoque(void) {
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
+	printf("\n"); 
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 	return op;
