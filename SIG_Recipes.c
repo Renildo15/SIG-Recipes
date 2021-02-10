@@ -18,6 +18,7 @@ void cadastrarProduto (void);
 void analisarEstoque (void);
 void reabastecerEstoque (void);
 void relatorioProdutos (void);
+void fimProg (void);
 
 int main(void) {
 	char opcao;
@@ -39,6 +40,7 @@ int main(void) {
 	analisarEstoque();
 	reabastecerEstoque();
 	relatorioProdutos();
+	fimProg();
     return 0;
 }
 void menuSobre(void) {
@@ -125,6 +127,9 @@ char menuPrincipal (void){
 		case '5':
 			prepararReceita();
 		 		break;
+		case '0':
+			fimProg();
+			break;
 	}
 	return op;
 }
@@ -591,6 +596,14 @@ void relatorioProdutos(void){
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+}
+
+void fimProg(void){
+	system("clear");
+	printf("\n");
+	printf("FIM DO PROGRAMA\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 }
