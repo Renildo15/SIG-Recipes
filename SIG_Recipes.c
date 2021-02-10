@@ -218,6 +218,7 @@ char consultarReceita(void) {
 			break;
 		
 		case '3':buscaporIngrediente();
+			break;
 		}
 
 	}while(op!= '0');
