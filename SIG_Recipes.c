@@ -29,19 +29,22 @@ int main(void) {
 		switch(opcao){
 			case '1':
 				cadastrarReceita();
-							break;
+					break;
 			case '2':
 			  consultarReceita();
-							break;
-		case '3':
+					break;
+			case '3':
 			 	consultarPreco();
-							break;
-		case '4':
+					break;
+			case '4':
 		 		controleEstoque();
-		 					break;
-		case '5':
+		 			break;
+			case '5':
 				prepararReceita();
-		 					break;
+		 			break;
+			case '6':
+				menuSobre();
+					break;
 	}
 
 	}while(opcao != '0');
@@ -117,6 +120,7 @@ char menuPrincipal (void){
 	printf("///           3. Consultar preços das comidas                             ///\n");
 	printf("///           4. Controle de estoque                                      ///\n");
 	printf("///           5. Preparar a receita                                       ///\n");
+	printf("///           6. Menu sobre                                               ///\n");
 	printf("///           0. Encerrar o programa                                      ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada: ");
@@ -128,26 +132,6 @@ char menuPrincipal (void){
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
-	switch(op){
-		case '1':
-			cadastrarReceita();
-				break;
-		case '2':
-		 	consultarReceita();
-				break;
-		case '3':
-			 consultarPreco();
-				break;
-		case '4':
-		 	controleEstoque();
-		 		break;
-		case '5':
-			prepararReceita();
-		 		break;
-		case '0':
-			fimProg();
-			break;
-	}
 	return op;
 }
 
