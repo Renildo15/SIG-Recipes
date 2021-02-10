@@ -209,6 +209,20 @@ char consultarReceita(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	do{
+		switch(op){
+			case '1':
+				buscarReceita();
+					break;
+			case '2':
+			  	buscarporCategoria();
+					break;
+			case '3':
+				buscaporIngrediente();
+				    break;			     
+		}
+	}while(op!= '0');
+	menuPrincipal();
 	getchar();
 	return op;
 }
