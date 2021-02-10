@@ -109,6 +109,23 @@ char menuPrincipal (void){
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	switch(op){
+		case '1':
+			cadastrarReceita();
+				break;
+		case '2':
+		 	consultarReceita();
+				break;
+		case '3':
+			 consultarPreco();
+				break;
+		case '4':
+		 	controleEstoque();
+		 		break;
+		case '5':
+			prepararReceita();
+		 		break;
+	}
 	return op;
 }
 
