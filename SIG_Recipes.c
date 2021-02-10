@@ -24,29 +24,28 @@ int main(void) {
 	char opcao;
 
     menuSobre();
-   do{
+	do{
 		opcao = menuPrincipal();
-		switch(opcao){
-			case '1':
-				cadastrarReceita();
-					break;
-			case '2':
-			  consultarReceita();
-					break;
-			case '3':
-			 	consultarPreco();
-					break;
-			case '4':
-		 		controleEstoque();
-		 			break;
-			case '5':
-				prepararReceita();
-		 			break;
-			case '6':
-				menuSobre();
-					break;
-	}
+		switch (opcao)
+		{
+		case '1':cadastrarReceita();
+			break;
+		
+		case '2':consultarReceita();
+			break;
 
+		case '3':consultarPreco();
+		    break;
+
+		case '4':controleEstoque();
+			break;
+
+		case '5':prepararReceita();
+			break;
+
+		case '6':menuSobre();
+			break;
+		}
 	}while(opcao != '0');
 	fimProg();
 	return 0;
@@ -210,17 +209,17 @@ char consultarReceita(void) {
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	do{
-		switch(op){
-			case '1':
-				buscarReceita();
-					break;
-			case '2':
-			  	buscarporCategoria();
-					break;
-			case '3':
-				buscaporIngrediente();
-				    break;			     
+		switch (op)
+		{
+		case '1':buscarReceita();
+			break;
+		
+		case '2':buscarporCategoria();
+			break;
+		
+		case '3':buscaporIngrediente();
 		}
+
 	}while(op!= '0');
 	menuPrincipal();
 	getchar();
