@@ -24,12 +24,29 @@ int main(void) {
 	char opcao;
 
     menuSobre();
-    opcao = menuPrincipal();
-    cadastrarReceita();
-    opcao = consultarReceita();
-    opcao = consultarPreco();
-    opcao = controleEstoque();
-    prepararReceita();
+   do{
+		opcao = menuPrincipal();
+		switch(opcao){
+			case '1':
+				cadastrarReceita();
+							break;
+			case '2':
+			  consultarReceita();
+							break;
+		case '3':
+			 	consultarPreco();
+							break;
+		case '4':
+		 		controleEstoque();
+		 					break;
+		case '5':
+				prepararReceita();
+		 					break;
+	}
+
+	}while(opcao != '0');
+	fimProg();
+	return 0;
 	buscarReceita();
 	buscarporCategoria();
 	buscaporIngrediente();
@@ -602,8 +619,15 @@ void relatorioProdutos(void){
 
 void fimProg(void){
 	system("clear");
-	printf("\n");
-	printf("FIM DO PROGRAMA\n");
-	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =           FIM DO PROGRAMA           = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	getchar();
 }
