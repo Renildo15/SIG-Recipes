@@ -259,6 +259,20 @@ char consultarPreco(void){
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	do{
+		switch(op)
+		{
+			case '1':exibirTabela();
+				break;
+
+			case '2':precoporPrato();
+				break;
+
+			case '3':precoCategoria();
+				break;
+		}
+	}while(op!='0');
+	menuPrincipal();
 	getchar();
 	return op;
 }
@@ -296,6 +310,23 @@ char controleEstoque(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n"); 
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	do{
+		switch (op)
+		{
+		case '1':cadastrarProduto();
+			break;
+		
+		case '2':analisarEstoque();
+			break;
+
+		case '3':reabastecerEstoque();
+			break;
+
+		case '4':relatorioProdutos();
+			break;
+		}
+	}while(op!='0');
+	menuPrincipal;
 	getchar();
 	return op;
 }
