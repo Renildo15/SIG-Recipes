@@ -222,7 +222,6 @@ char consultarReceita(void) {
 		}
 
 	}while(op!= '0');
-	menuPrincipal();
 	getchar();
 	return op;
 }
@@ -272,7 +271,6 @@ char consultarPreco(void){
 				break;
 		}
 	}while(op!='0');
-	menuPrincipal();
 	getchar();
 	return op;
 }
@@ -326,7 +324,6 @@ char controleEstoque(void) {
 			break;
 		}
 	}while(op!='0');
-	menuPrincipal;
 	getchar();
 	return op;
 }
