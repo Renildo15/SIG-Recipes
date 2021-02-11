@@ -261,14 +261,14 @@ char consultarPreco(void){
 	do{
 		switch(op)
 		{
-			case '1':exibirTabela();
-				break;
+		case '1':exibirTabela();
+			break;
 
-			case '2':precoporPrato();
-				break;
+		case '2':precoporPrato();
+			break;
 
-			case '3':precoCategoria();
-				break;
+		case '3':precoCategoria();
+			break;
 		}
 	}while(op!='0');
 	getchar();
