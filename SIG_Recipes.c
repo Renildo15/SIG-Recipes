@@ -8,17 +8,23 @@ char consultarPreco (void);
 char controleEstoque (void);
 void menuSobre (void);
 void prepararReceita (void);
+void fimProg (void);
+
+void moduloConsultarReceita(void);
 void buscarReceita (void);
 void buscarporCategoria (void);
 void buscaporIngrediente (void);
+
+void moduloconsultarPreco(void);
 void exibirTabela (void);
 void precoporPrato (void);
 void precoCategoria (void);
+
+void modulocontroledeEstoque(void);
 void cadastrarProduto (void);
 void analisarEstoque (void);
 void reabastecerEstoque (void);
 void relatorioProdutos (void);
-void fimProg (void);
 
 int main(void) {
 	char opcao;
@@ -31,13 +37,13 @@ int main(void) {
 		case '1':cadastrarReceita();
 			break;
 		
-		case '2':consultarReceita();
+		case '2':moduloConsultarReceita();
 			break;
 
-		case '3':consultarPreco();
+		case '3':moduloconsultarPreco();
 		    break;
 
-		case '4':controleEstoque();
+		case '4':modulocontroledeEstoque();
 			break;
 
 		case '5':prepararReceita();
@@ -49,18 +55,6 @@ int main(void) {
 	}while(opcao != '0');
 	fimProg();
 	return 0;
-	buscarReceita();
-	buscarporCategoria();
-	buscaporIngrediente();
-	exibirTabela();
-	precoporPrato();
-	precoCategoria();
-	cadastrarProduto();
-	analisarEstoque();
-	reabastecerEstoque();
-	relatorioProdutos();
-	fimProg();
-    return 0;
 }
 void menuSobre(void) {
     system("clear");
@@ -119,7 +113,7 @@ char menuPrincipal (void){
 	printf("///           3. Consultar preços das comidas                             ///\n");
 	printf("///           4. Controle de estoque                                      ///\n");
 	printf("///           5. Preparar a receita                                       ///\n");
-	printf("///           6. Menu sobre                                               ///\n");
+	printf("///           6. Sobre o projeto                                          ///\n");
 	printf("///           0. Encerrar o programa                                      ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada: ");
@@ -208,20 +202,6 @@ char consultarReceita(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	do{
-		switch (op)
-		{
-		case '1':buscarReceita();
-			break;
-		
-		case '2':buscarporCategoria();
-			break;
-		
-		case '3':buscaporIngrediente();
-			break;
-		}
-
-	}while(op!= '0');
 	getchar();
 	return op;
 }
@@ -258,19 +238,6 @@ char consultarPreco(void){
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	do{
-		switch(op)
-		{
-		case '1':exibirTabela();
-			break;
-
-		case '2':precoporPrato();
-			break;
-
-		case '3':precoCategoria();
-			break;
-		}
-	}while(op!='0');
 	getchar();
 	return op;
 }
@@ -308,24 +275,68 @@ char controleEstoque(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n"); 
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	do{
-		switch (op)
-		{
-		case '1':cadastrarProduto();
-			break;
-		
-		case '2':analisarEstoque();
-			break;
-
-		case '3':reabastecerEstoque();
-			break;
-
-		case '4':relatorioProdutos();
-			break;
-		}
-	}while(op!='0');
 	getchar();
 	return op;
+}
+
+void moduloConsultarReceita(void){
+	char opcao;
+	do{
+    opcao = consultarReceita();
+		switch (opcao)
+		{
+			case '1':buscarReceita();
+						break;
+		
+			case '2':buscarporCategoria();
+						break;
+		
+			case '3':buscaporIngrediente();
+						break;
+		}
+
+	}while(opcao!= '0');
+
+}
+
+void moduloconsultarPreco(void){
+	char opcao;
+	do{
+		opcao = consultarPreco();
+		switch(opcao)
+		{
+			case '1':exibirTabela();
+						break;
+
+			case '2':precoporPrato();
+						break;
+
+			case '3':precoCategoria();
+						break;
+		}
+	}while(opcao!='0');
+
+}
+
+void modulocontroledeEstoque(void){
+	char opcao;
+	do{
+		opcao = controleEstoque();
+		switch (opcao)
+		{
+			case '1':cadastrarProduto();
+						break;
+		
+			case '2':analisarEstoque();
+						break;
+
+			case '3':reabastecerEstoque();
+						break;
+
+			case '4':relatorioProdutos();
+						break;
+		}
+	}while(opcao!='0');
 }
 
 void prepararReceita(void) {
@@ -462,6 +473,7 @@ void exibirTabela(void){
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
+	getchar();
 
 }
 
