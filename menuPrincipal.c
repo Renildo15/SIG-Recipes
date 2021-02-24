@@ -1,0 +1,38 @@
+char menuPrincipal (void){
+	char op;
+	system("clear");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = = = = =  Menu Principal = = = = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Cadastrar receitas                                       ///\n");
+	printf("///           2. Consultar receitas                                       ///\n");
+	printf("///           3. Consultar preços das comidas                             ///\n");
+	printf("///           4. Controle de estoque                                      ///\n");
+	printf("///           5. Preparar a receita                                       ///\n");
+	printf("///           6. Sobre o projeto                                          ///\n");
+	printf("///           0. Encerrar o programa                                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada: ");
+	scanf("%c", &op);
+	getchar();
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	return op;
+}
