@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "modulomenuPrincipal.h"
-#include "moduloConsultarReceita.h"
-#include "moduloconsultarPreco.h"
-#include "modulocontroledeEstoque.h"
+#include "ModulosAssinaturas.h"
 
 int main(void) {
 	char opcao;
