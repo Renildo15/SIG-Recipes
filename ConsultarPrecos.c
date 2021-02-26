@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include "ConsultarPrecos.h"
+
 void exibirTabela(void){
 	system("clear");
 	printf("\n");

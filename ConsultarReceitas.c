@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include "ConsultarReceitas.h"
 void buscarReceita(void){
 	system("clear");
 	printf("\n");

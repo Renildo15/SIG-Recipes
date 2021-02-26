@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include "ControledeEstoque.h"
+
 void cadastrarProduto(void){
 	char produto[20];
 	char data[21];

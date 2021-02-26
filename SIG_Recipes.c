@@ -4,6 +4,7 @@
 #include "ConsultarReceitas.h"
 #include "ConsultarPrecos.h"
 #include "ControledeEstoque.h"
+#include "modulos.h"
 
 int main(void) {
 	char opcao;
