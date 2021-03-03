@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "menuPrincipal.h"
+#include "Preco.h"
 
 char menuPrincipal (void){
 	char op;
@@ -45,7 +46,10 @@ char menuPrincipal (void){
 void cadastrarReceita(void){
 	char nomePrato[21];
 	char Ingredientes[51];
-	char preco[51];
+	int  real;
+	int  centavo;
+	int  precoReal;
+	int  precoCentavo;
 	char categoria[21];
 
 	system("clear");
@@ -54,7 +58,7 @@ void cadastrarReceita(void){
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias        = = = =          ///\n");
 	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
 	printf("///          ===================================================          ///\n");
 	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
@@ -71,8 +75,30 @@ void cadastrarReceita(void){
 	printf("///             Ingredientes: ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", Ingredientes);
 	getchar();
-	printf("///             Preço: ");
-	scanf("%[0-9,.]", preco);
+	printf("///             Preco:                                                    ///\n");
+	printf("///             Reais: ");
+	scanf("%d", &real);
+	printf("///             Centavos: ");
+	scanf("%d", &centavo);
+	precoReal = validaReal(real);
+	precoCentavo =validaCentavo(centavo);
+	while(!precoReal || !precoCentavo){
+
+		
+		printf("///             Invalido\n");
+		printf("///             Tente novamente!                                          ///\n");
+		printf("///             Preco:                                                    ///\n");
+		printf("///             Reais: ");
+		scanf("%d", &real);
+		printf("///             Centavos: ");
+		scanf("%d", &centavo);
+		precoReal = validaReal(real);
+		precoCentavo =validaCentavo(centavo);
+	}
+	
+	printf("///             Preco:R$ %i.%02i                                             ///\n", real, centavo);
+	printf("///             Valido                                                   ///\n");
+
 	getchar();
 	printf("///             Categoria: ");
 	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", categoria);

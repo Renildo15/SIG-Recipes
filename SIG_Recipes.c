@@ -6,6 +6,7 @@
 #include "ControledeEstoque.h"
 #include "modulos.h"
 
+
 int main(void) {
 	char opcao;
 
