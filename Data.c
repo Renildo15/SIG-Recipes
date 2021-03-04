@@ -1,6 +1,6 @@
 /// Função BASEADA e não copiada na do Professor Flavius
 #include <stdio.h>
-int validacao (int dia, int ano, int mes){
+int validacao (int dia, int mes, int ano){
 	int maiorDia;
 
 	if( ano >= 2021){
@@ -10,7 +10,7 @@ int validacao (int dia, int ano, int mes){
 					maiorDia = 29;
 					return 1;
 					if (dia > maiorDia)	{
-						printf("///                          Data invalida                               ///\n");
+						///printf("///                          Data invalida                               ///\n");
 						return 0;	
 					}else{
 						return 1;
@@ -21,7 +21,7 @@ int validacao (int dia, int ano, int mes){
 					maiorDia = 29;
 					return 1;	
 					if (dia > maiorDia)	{
-							printf("///                          Data invalida                               ///\n");	
+							///printf("///                          Data invalida                               ///\n");	
 							return 0;
 					}else{
 						return 1;
@@ -30,11 +30,11 @@ int validacao (int dia, int ano, int mes){
 		}else{
 				if ((mes == 2) && (dia >= 29)){
 					maiorDia = 28;
-					printf("///                           invalido                                ///\n");
-					printf("///                          Nao e ano bissexto                               ///\n");
+					///printf("///                           invalido                                ///\n");
+					///printf("///                          Nao e ano bissexto                               ///\n");
 					return 0;
 					if (dia > maiorDia)	{
-							printf("///                          Data invalida                               ///\n");	
+							////printf("///                          Data invalida                               ///\n");	
 							return 0;
 				}else{
 						return 1;
@@ -57,12 +57,12 @@ int validacao (int dia, int ano, int mes){
 	}
 
 	if(mes < 0 || mes > 12){
-		printf("///                          Data invalida                               ///\n");
+		////printf("///                          Data invalida                               ///\n");
 		return 0;
 	}
 
 	if (dia < 1 || dia > maiorDia){
-		printf("///                          Data invalida                               ///\n");
+		/////printf("///                          Data invalida                               ///\n");
 		return 0;
 	}else{
 		return 1;

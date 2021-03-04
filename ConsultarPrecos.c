@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "ConsultarPrecos.h"
 
 void exibirTabela(void){
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -28,7 +29,7 @@ void exibirTabela(void){
 }
 
 void precoporPrato(void){
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -55,7 +56,7 @@ void precoporPrato(void){
 }
 
 void precoCategoria(void){
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");

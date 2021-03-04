@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "ControledeEstoque.h"
 #include "Data.h"
 #include "Preco.h"
@@ -15,7 +16,7 @@ void cadastrarProduto(void){
 	int  precoCentavo;
 	char quantidade[101];
 	
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -42,7 +43,8 @@ void cadastrarProduto(void){
 	scanf("%d", &mes);
 	printf("///             Ano: ");
 	scanf("%d", &ano);
-	dataValida = validacao (dia,ano, mes);
+	getchar();
+	dataValida = validacao (dia,mes, ano);
 	while(!dataValida){
 		printf("///                           invalido                               ///\n");	
 		printf("///                          Tente novamente                         ///\n");	
@@ -52,6 +54,7 @@ void cadastrarProduto(void){
 		scanf("%d", &mes);
 		printf("///             Ano: ");
 		scanf("%d", &ano);
+		getchar();
 		dataValida = validacao (dia,ano, mes);
 
 	}
@@ -61,8 +64,10 @@ void cadastrarProduto(void){
 	printf("///             Valor Pago: \n");
 	printf("///             Reais: ");
 	scanf("%d", &real);
+	getchar();
 	printf("///             Centavos: ");
 	scanf("%d", &centavo);
+	getchar();
 	precoReal = validaReal(real);
 	precoCentavo =validaCentavo(centavo);
 	while(!precoReal || !precoCentavo){
@@ -73,8 +78,10 @@ void cadastrarProduto(void){
 		printf("///             Valor Pago:                                               ///\n");
 		printf("///             Reais: ");
 		scanf("%d", &real);
+		getchar();
 		printf("///             Centavos: ");
 		scanf("%d", &centavo);
+		getchar();
 		precoReal = validaReal(real);
 		precoCentavo =validaCentavo(centavo);
 	}
@@ -94,7 +101,7 @@ void cadastrarProduto(void){
 }
 
 void analisarEstoque(void){
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -121,7 +128,7 @@ void analisarEstoque(void){
 }
 
 void reabastecerEstoque(void){
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -149,7 +156,7 @@ void reabastecerEstoque(void){
 }
 
 void relatorioProdutos(void){
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");

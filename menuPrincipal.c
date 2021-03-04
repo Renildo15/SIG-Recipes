@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "menuPrincipal.h"
 #include "Preco.h"
 
 char menuPrincipal (void){
 	char op;
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -52,7 +53,7 @@ void cadastrarReceita(void){
 	int  precoCentavo;
 	char categoria[21];
 
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -80,23 +81,25 @@ void cadastrarReceita(void){
 	scanf("%d", &real);
 	printf("///             Centavos: ");
 	scanf("%d", &centavo);
+	getchar();
 	precoReal = validaReal(real);
 	precoCentavo =validaCentavo(centavo);
 	while(!precoReal || !precoCentavo){
 
 		
-		printf("///             Invalido\n");
+		printf("///             Invalido                                                  ///\n");
 		printf("///             Tente novamente!                                          ///\n");
 		printf("///             Preco:                                                    ///\n");
 		printf("///             Reais: ");
 		scanf("%d", &real);
 		printf("///             Centavos: ");
 		scanf("%d", &centavo);
+		getchar();
 		precoReal = validaReal(real);
 		precoCentavo =validaCentavo(centavo);
 	}
 	
-	printf("///             Preco:R$ %i.%02i                                             ///\n", real, centavo);
+	printf("///             Preco:R$ %i.%02i                                          ///\n", real, centavo);
 	printf("///             Valido                                                   ///\n");
 
 	getchar();
@@ -112,7 +115,7 @@ void cadastrarReceita(void){
 
 char consultarReceita(void) {
 	char op;
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -148,7 +151,7 @@ char consultarReceita(void) {
 
 char consultarPreco(void){
 	char op;
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -184,7 +187,7 @@ char consultarPreco(void){
 
 char controleEstoque(void) {
 	char op;
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -220,7 +223,7 @@ char controleEstoque(void) {
 }
 
 void prepararReceita(void) {
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -251,7 +254,7 @@ void prepararReceita(void) {
 }
 
 void menuSobre(void) {
-    system("clear");
+    system("cls");
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -284,7 +287,7 @@ void menuSobre(void) {
 }
 
 void fimProg(void){
-	system("clear");
+	system("cls");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");

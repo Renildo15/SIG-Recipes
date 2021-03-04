@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "ConsultarReceitas.h"
 void buscarReceita(void){
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -28,7 +29,7 @@ void buscarReceita(void){
 }
 
 void buscarporCategoria(void){
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -55,7 +56,7 @@ void buscarporCategoria(void){
 }
 
 void buscaporIngrediente(void){
-	system("clear");
+	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
