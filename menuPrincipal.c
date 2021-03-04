@@ -1,5 +1,7 @@
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "menuPrincipal.h"
 #include "Preco.h"
 
@@ -47,8 +49,9 @@ char menuPrincipal (void){
 void cadastrarReceita(void){
 	char nomePrato[21];
 	char Ingredientes[51];
-	int  real;
-	int  centavo;
+	char real[33];
+	char centavo[3];
+
 	int  precoReal;
 	int  precoCentavo;
 	char categoria[21];
@@ -78,29 +81,31 @@ void cadastrarReceita(void){
 	getchar();
 	printf("///             Preco:                                                    ///\n");
 	printf("///             Reais: ");
-	scanf("%d", &real);
-	printf("///             Centavos: ");
-	scanf("%d", &centavo);
+	scanf("%[0-9]", real);
 	getchar();
-	precoReal = validaReal(real);
-	precoCentavo =validaCentavo(centavo);
+	printf("///             Centavos: ");
+	scanf("%[0-9]", centavo);
+	getchar();
+	precoReal = validaReal(atoi(real));
+	precoCentavo =validaCentavo(atoi(centavo));
 	while(!precoReal || !precoCentavo){
 
 		
-		printf("///             Invalido                                                  ///\n");
+		printf("///             Invalido\n");
 		printf("///             Tente novamente!                                          ///\n");
-		printf("///             Preco:                                                    ///\n");
+		printf("///             Preco:                                               ///\n");
 		printf("///             Reais: ");
-		scanf("%d", &real);
-		printf("///             Centavos: ");
-		scanf("%d", &centavo);
+		scanf("%[0-9]", real);
 		getchar();
-		precoReal = validaReal(real);
-		precoCentavo =validaCentavo(centavo);
+		printf("///             Centavos: ");
+		scanf("%[0-9]", centavo);
+		getchar();
+		precoReal = validaReal(atoi(real));
+		precoCentavo =validaCentavo(atoi(centavo));
 	}
 	
-	printf("///             Preco:R$ %i.%02i                                          ///\n", real, centavo);
-	printf("///             Valido                                                   ///\n");
+	printf("///              R$ %c.%02c                                                  ///\n", real, centavo);
+	printf("///              Valido                                                      ///\n");
 
 	getchar();
 	printf("///             Categoria: ");
@@ -300,4 +305,3 @@ void fimProg(void){
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	getchar();
 }
-
