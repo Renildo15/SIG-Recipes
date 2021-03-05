@@ -1,19 +1,15 @@
 ///Funções de validaçaõ feita por mim mesmo
-int validaReal(int real){
-	if(real <= 0){
+float validaPreco(float preco){
+	if (preco < 0){
+	// printf("Falso\n");
+		return 0;
+	}else if(preco == 0.00){	
+	// printf("Falso\n");
 		return 0;
 	}else{
+	// printf("Verdadeiro\n");
 		return 1;
 	}
-}
-
-
-int validaCentavo(int centavo){
-	if (centavo <= 0 || centavo > 99){
-		return 0;
-	}else{
-		return 1;
-	}
-	return 0;
+	return 1;
 }
 

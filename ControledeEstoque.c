@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> //<-- 
 #include "ControledeEstoque.h"
 #include "Data.h"
 #include "Preco.h"
@@ -10,12 +9,9 @@ void cadastrarProduto(void){
 	int  dia;
 	int  mes;
 	int  ano;
-	int  dataValida=0;
-	char real[33];
-	char centavo[3];
-	
-	int  precoReal;
-	int  precoCentavo;
+	int  dataValida;
+	float preco;
+	float valPre;
 	char quantidade[101];
 	
 	system("cls");
@@ -59,40 +55,30 @@ void cadastrarProduto(void){
 		printf("///             Ano: ");
 		scanf("%d", &ano);
 		getchar();
-		printf("///             A data esta: %d/%d/%d \n",dia,mes,ano);
+		dia = (int)dia ;mes=(int)mes; ano = (int)ano;
 		dataValida = validacao (dia,mes,ano);
 	}
 	printf("///             %02d/%02d/%d                                               ///\n", dia, mes, ano);
-	printf("///             Valido                                                     ///\n");
+	printf("///             Valido                                                   ///\n");
 	getchar();
-	printf("///             Valor Pago: \n");
-	printf("///             Reais: ");
-	scanf("%[0-9]", real);
+	printf("///             Valor Pago: ");
+	scanf("%f",&preco);
 	getchar();
-	printf("///             Centavos: ");
-	scanf("%[0-9]", centavo);
-	getchar();
-	precoReal = validaReal(atoi(real));
-	precoCentavo =validaCentavo(atoi(centavo));
-	while(!precoReal || !precoCentavo){
+	valPre= validaPreco(preco);
+	while(!valPre){
 
 		
-		printf("///             Invalido\n");
+		printf("///             Invalido                                                  ///\n");
 		printf("///             Tente novamente!                                          ///\n");
-		printf("///             Valor Pago:                                               ///\n");
-		printf("///             Reais: ");
-		scanf("%[0-9]", real);
+		printf("///             Valor Pago: ");
+		scanf("%f",&preco);
 		getchar();
-		printf("///             Centavos: ");
-		scanf("%[0-9]", centavo);
-		getchar();
-		precoReal = validaReal(atoi(real));
-		precoCentavo =validaCentavo(atoi(centavo));
+		dia = (int)dia ;mes=(int)mes; ano = (int)ano;
+		valPre= validaPreco(preco);
 	}
 	
-	// printf("///              R$ %i.%02i                                                  ///\n", real, centavo);
-	printf("///              Valido                                                      ///\n");
-
+	printf("///             R$ %.2f                                                   ///\n",preco);
+	printf("///             Valido                                                    ///\n");
 	getchar();
 	printf("///             Quantidade: ");
 	scanf("%[0-9,.]", quantidade);

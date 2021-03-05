@@ -1,0 +1,1 @@
+float ValidaQuant(float quant);

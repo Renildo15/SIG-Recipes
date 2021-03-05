@@ -1,4 +1,4 @@
-/// Autor do codigo: Prof.Flavius
+/// adaptado de @flgorgoni,2021
 int bissexto(int ano) {
   if ((ano % 4 == 0) && (ano % 100 != 0)) {
     return 1;
