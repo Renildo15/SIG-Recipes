@@ -1,1 +1,1 @@
-float validaPreco(float preco);
+float validaPreco(float pre[]);

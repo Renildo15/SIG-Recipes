@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "ControledeEstoque.h"
 #include "Data.h"
+#include "ValidaQuant.h"
+#include "validaNome.h"
 #include "Preco.h"
 
 void cadastrarProduto(void){
@@ -10,9 +12,11 @@ void cadastrarProduto(void){
 	int  mes;
 	int  ano;
 	int  dataValida;
+	char pre[11];
 	float preco;
 	float valPre;
-	char quantidade[101];
+	char quant[11];
+	float Kg;
 	
 	system("cls");
 	printf("\n");
@@ -32,8 +36,15 @@ void cadastrarProduto(void){
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	printf("///             Nome do produto: ");
-	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", produto);
+	scanf("%[^\n]", produto);
 	getchar();
+	while(!validaNome(produto)){
+		printf("\n///             Invalido                                                  ///\n");	
+		printf("\n///             Tente novamente!                                          ///\n");
+		printf("///             Nome do produto: ");
+		scanf("%[^\n]", produto);
+		getchar();
+	}
 	printf("///             Data de Validade: \n");
 	printf("///             Dia: ");
 	scanf("%d", &dia);
@@ -41,47 +52,57 @@ void cadastrarProduto(void){
 	scanf("%d", &mes);
 	printf("///             Ano: ");
 	scanf("%d", &ano);
-	getchar();
+	setbuf(stdin,NULL);
 	dataValida = validacao (dia,mes,ano);
+	
 	while(!dataValida){
+		
 		printf("///                           invalido                               ///\n");	
 		printf("///                          Tente novamente                         ///\n");	
 		printf("///             Dia: ");
 		scanf("%d", &dia);
-		getchar();
 		printf("///             Mês: ");
 		scanf("%d", &mes);
-		getchar();
 		printf("///             Ano: ");
 		scanf("%d", &ano);
-		getchar();
+		setbuf(stdin,NULL);
 		dia = (int)dia ;mes=(int)mes; ano = (int)ano;
 		dataValida = validacao (dia,mes,ano);
 	}
 	printf("///             %02d/%02d/%d                                               ///\n", dia, mes, ano);
-	printf("///             Valido                                                   ///\n");
+	printf("///             Valido                                                     ///\n");
 	getchar();
 	printf("///             Valor Pago: ");
-	scanf("%f",&preco);
-	getchar();
-	valPre= validaPreco(preco);
-	while(!valPre){
+	scanf("%s",pre);
+	setbuf(stdin,NULL);
+	preco = atof(pre);
+	valPre = validaPreco(&preco);
 
-		
-		printf("///             Invalido                                                  ///\n");
-		printf("///             Tente novamente!                                          ///\n");
+	while(!valPre){
 		printf("///             Valor Pago: ");
 		scanf("%f",&preco);
-		getchar();
-		dia = (int)dia ;mes=(int)mes; ano = (int)ano;
-		valPre= validaPreco(preco);
+		setbuf(stdin,NULL);
+		valPre = validaPreco(&preco);
+
 	}
-	
+
 	printf("///             R$ %.2f                                                   ///\n",preco);
-	printf("///             Valido                                                    ///\n");
 	getchar();
-	printf("///             Quantidade: ");
-	scanf("%[0-9,.]", quantidade);
+	printf("///             Kg/Gramas: ");
+	scanf("%s",quant);
+	setbuf(stdin,NULL);
+	Kg = atof(quant);
+	ValidaQuant(Kg);
+	while (!Kg){
+				printf("///             Invalido                                                  ///\n");
+				printf("///             Kg/Gramas: ");
+				scanf("%s",quant);
+				setbuf(stdin,NULL);
+				Kg = atof(quant);
+				ValidaQuant(Kg);
+
+	}
+	printf("///             %.3f Kg                                                  ///\n",Kg);
 	getchar();
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");

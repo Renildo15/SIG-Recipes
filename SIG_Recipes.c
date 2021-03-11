@@ -27,7 +27,7 @@ int main(void) {
 		case '4':modulocontroledeEstoque();
 			break;
 
-		case '5':prepararReceita();
+		case '5':deletarReceita();
 			break;
 
 		case '6':menuSobre();

@@ -1,10 +1,10 @@
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <ctype.h>
 #include "menuPrincipal.h"
-#include "Preco.h"
 #include "ValidaQuant.h"
+#include "validaNome.h"
+#include "Preco.h"
 
 char menuPrincipal (void){
 	char op;
@@ -29,7 +29,7 @@ char menuPrincipal (void){
 	printf("///           2. Consultar receitas                                       ///\n");
 	printf("///           3. Consultar preços das comidas                             ///\n");
 	printf("///           4. Controle de estoque                                      ///\n");
-	printf("///           5. Preparar a receita                                       ///\n");
+	printf("///           5. Deletar Receita                                          ///\n");
 	printf("///           6. Sobre o projeto                                          ///\n");
 	printf("///           0. Encerrar o programa                                      ///\n");
 	printf("///                                                                       ///\n");
@@ -50,11 +50,14 @@ char menuPrincipal (void){
 void cadastrarReceita(void){
 	char nomePrato[21];
 	char Ingredientes[51];
+	char preparo[101];
+	char pre[11];
 	float preco;
 	float valPre;
 	char categoria[21];
-	float quant;
+	char quant[11];
 	float Kg;
+	int op;
 
 	system("cls");
 	printf("\n");
@@ -74,45 +77,95 @@ void cadastrarReceita(void){
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	printf("///             Nome do prato: ");
-	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nomePrato);
+	scanf("%[^\n]", nomePrato);
 	getchar();
-	printf("///             Ingredientes: ");
-	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", Ingredientes);
-	getchar();
-	printf("///             Kg/Gramas: ");
-	scanf("%f",&quant);
-	getchar();
-	Kg = ValidaQuant(quant);
-	while (!Kg){
-		printf("///             Invalido                                                  ///\n");
-		printf("///             Kg/Gramas: ");
-		scanf("%f",&quant);
-		getchar();
-		Kg = ValidaQuant(quant);
-	}
-	printf("///             %.3f Kg                                                  ///\n",quant);
-	printf("///             Preco: ");
-	scanf("%f",&preco);
-	getchar();
-	valPre= validaPreco(preco);
-	while(!valPre){
 
-		
-		printf("///             Invalido                                                  ///\n");
-		printf("///             Tente novamente!                                          ///\n");
+	while (!validaNome(nomePrato)){
+		printf("\n///             Invalido                                                  ///\n");	
+		printf("\n///             Tente novamente!                                          ///\n");
+		printf("\n///             Nome do prato: ");
+		scanf("%[^\n]", nomePrato);
+		getchar();
+	}
+
+	do{
+			printf("///             Ingredientes: ");
+			scanf("%[^\n]", Ingredientes);
+			getchar();
+			while (!validaNome(Ingredientes)){
+				printf("\n///             Invalido                                                  ///\n");	
+				printf("\n///             Tente novamente!                                          ///\n");
+				printf("///             Ingredientes: ");
+				scanf("%[^\n]", Ingredientes);
+				getchar();
+
+			}
+			printf("///             Kg/Gramas: ");
+			scanf("%s",quant);
+			setbuf(stdin,NULL);
+			Kg = atof(quant);
+			ValidaQuant(Kg);
+			while (!Kg){
+				printf("///             Invalido                                                  ///\n");
+				printf("///             Kg/Gramas: ");
+				scanf("%s",quant);
+				setbuf(stdin,NULL);
+				Kg = atof(quant);
+				ValidaQuant(Kg);
+			}
+			printf("\n///             1-Continuar                                               ///");
+			printf("\n///             0-Sair                                                    ///");
+			printf("\n///             Resposta:   ");
+			scanf(" %d",&op);
+			getchar();
+			while(op > 1 || op < 0){
+				printf("\n///             Invalido                                                  ///\n");	
+				printf("\n///             Tente novamente!                                          ///\n");
+				printf("\n///             1-Continuar                                               ///");
+				printf("\n///             0-Sair                                                    ///");
+				printf("\n///             Resposta:   ");
+				scanf(" %d",&op);
+				getchar();
+			}
+			printf("///             %.3f Kg                                                  ///\n",Kg);
+	}while(op!=0);
+	printf("///             Modo de preparo: ");
+	scanf("%[^\n]",preparo);
+	getchar();
+	while(!validaNome(preparo)){
+		printf("\n///             Invalido                                                  ///\n");	
+		printf("\n///             Tente novamente!                                          ///\n");
+		printf("///             Modo de preparo: ");
+		scanf("%[^\n]",preparo);
+		getchar();
+
+	}
+	printf("///             Preco: ");
+	scanf("%s",pre);
+	setbuf(stdin,NULL);
+	preco = atof(pre);
+	valPre = validaPreco(&preco);
+
+	while(!valPre){
 		printf("///             Preco: ");
 		scanf("%f",&preco);
-		getchar();
-		valPre= validaPreco(preco);
-	}
-	
-	printf("///             R$ %.2f                                                   ///\n",preco);
-	printf("///             Valido                                                    ///\n");
+		setbuf(stdin,NULL);
+		valPre = validaPreco(&preco);
+		setbuf(stdin,NULL);
 
+	}
+	printf("///             R$ %.2f                                                   ///\n",preco);
 	getchar();
 	printf("///             Categoria: ");
-	scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", categoria);
+	scanf("%[^\n]", categoria);
 	getchar();
+	while(!validaNome(categoria)){
+		printf("\n///             Invalido                                                  ///\n");	
+		printf("\n///             Tente novamente!                                          ///\n");
+		printf("///             Categoria: ");
+		scanf("%[^\n]", categoria);
+		getchar();
+	}
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
@@ -229,7 +282,7 @@ char controleEstoque(void) {
 	return op;
 }
 
-void prepararReceita(void) {
+void deletarReceita(void) {
 	system("cls");
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -244,12 +297,8 @@ void prepararReceita(void) {
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = =       Preparar receita      = = = = =             ///\n");
+	printf("///           = = = = =       Deletar receita       = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///                                                                       ///\n");
-	printf("///    Essa opção serve para simular a preparação de uma receita e dizer  ///\n");
-	printf("///    se é possível prepara-lá na vida real baseando-se nos ingredientes ///\n");
-	printf("///    disponivéis no estoque.                                            ///\n");
 	printf("///                                                                       ///\n");
 	printf("///             Buscar nome da receita:                                   ///\n");
 	printf("///                                                                       ///\n");
