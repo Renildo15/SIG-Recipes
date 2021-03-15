@@ -4,6 +4,7 @@
 #include "ConsultarReceitas.h"
 #include "ConsultarPrecos.h"
 #include "ControledeEstoque.h"
+#include "Relatorios.h"
 
 void moduloConsultarReceita(void){
 	char opcao;
@@ -57,9 +58,30 @@ void modulocontroledeEstoque(void){
 
 			case '3':reabastecerEstoque();
 						break;
+		}
+	}while(opcao!='0');
+}
 
-			case '4':relatorioProdutos();
-						break;
+void moduloRelatorios(void){
+	char opcao;
+	do{
+		opcao = relatorios();
+		switch (opcao)
+		{
+			case '1': relatorioPratos();
+				break;
+
+			case '2': relatorioPrecos();
+				break;
+
+			case '3': relatorioSaida();
+				break;
+
+			case '4': relatorioIngredientes();
+				break;
+
+			case '5': relatorioCategoria();
+				break;
 		}
 	}while(opcao!='0');
 }

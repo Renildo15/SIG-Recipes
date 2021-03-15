@@ -5,7 +5,7 @@
 #include "ConsultarPrecos.h"
 #include "ControledeEstoque.h"
 #include "modulos.h"
-
+#include "Relatorios.h"
 
 int main(void) {
 	char opcao;
@@ -29,8 +29,11 @@ int main(void) {
 
 		case '5':deletarReceita();
 			break;
+		
+		case '6':moduloRelatorios();
+			break;
 
-		case '6':menuSobre();
+		case '7':menuSobre();
 			break;
 		}
 	}while(opcao != '0');

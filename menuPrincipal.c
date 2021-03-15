@@ -30,7 +30,8 @@ char menuPrincipal (void){
 	printf("///           3. Consultar preços das comidas                             ///\n");
 	printf("///           4. Controle de estoque                                      ///\n");
 	printf("///           5. Deletar Receita                                          ///\n");
-	printf("///           6. Sobre o projeto                                          ///\n");
+	printf("///           6. Relátorios                                               ///\n");
+	printf("///           7. Sobre o projeto                                          ///\n");
 	printf("///           0. Encerrar o programa                                      ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada: ");
@@ -307,6 +308,43 @@ void deletarReceita(void) {
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
 
+}
+char relatorios(void){
+	char op;
+	system("cls");
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =          Relatorios         = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Relatorio das pratos                                     ///\n");
+	printf("///           2. Relatorio dos precos                                     ///\n");
+	printf("///           3. Relatorio de saida                                       ///\n");
+	printf("///           4. Relatorio dos ingredientes                               ///\n");
+	printf("///           5. Relatorio das categorias                                 ///\n");
+	printf("///           0. Sair                                                     ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada: ");
+	scanf("%c", &op);
+	getchar();
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	return op;
 }
 
 void menuSobre(void) {
