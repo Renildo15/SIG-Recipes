@@ -5,6 +5,7 @@
 #include "ValidaQuant.h"
 #include "validaNome.h"
 #include "Preco.h"
+#include "limpaTela.h"
 
 void cadastrarProduto(void){
 	char produto[20];
@@ -17,8 +18,7 @@ void cadastrarProduto(void){
 	float valPre;
 	char quant[11];
 	float Kg;
-	
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -112,7 +112,7 @@ void cadastrarProduto(void){
 }
 
 void analisarEstoque(void){
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -139,7 +139,7 @@ void analisarEstoque(void){
 }
 
 void reabastecerEstoque(void){
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");

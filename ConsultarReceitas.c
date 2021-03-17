@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ConsultarReceitas.h"
+#include "limpaTela.h"
 void buscarReceita(void){
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -29,7 +30,7 @@ void buscarReceita(void){
 }
 
 void buscarporCategoria(void){
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -56,7 +57,7 @@ void buscarporCategoria(void){
 }
 
 void buscaporIngrediente(void){
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");

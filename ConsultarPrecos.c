@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ConsultarPrecos.h"
+#include "limpaTela.h"
 
 void exibirTabela(void){
 	system("cls");

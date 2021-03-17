@@ -5,10 +5,11 @@
 #include "ValidaQuant.h"
 #include "validaNome.h"
 #include "Preco.h"
+#include "limpaTela.h"
 
 char menuPrincipal (void){
 	char op;
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -60,7 +61,7 @@ void cadastrarReceita(void){
 	float Kg;
 	int op;
 
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -176,7 +177,7 @@ void cadastrarReceita(void){
 
 char consultarReceita(void) {
 	char op;
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -212,7 +213,7 @@ char consultarReceita(void) {
 
 char consultarPreco(void){
 	char op;
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -248,7 +249,7 @@ char consultarPreco(void){
 
 char controleEstoque(void) {
 	char op;
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -268,7 +269,6 @@ char controleEstoque(void) {
 	printf("///           1. Cadastrar produto                                        ///\n");
 	printf("///           2. Analisar estoque                                         ///\n");
 	printf("///           3. Reabastecer o estoque                                    ///\n");
-	printf("///           4. Relatorio dos produtos                                   ///\n");
 	printf("///           0. Sair                                                     ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada: ");
@@ -284,7 +284,7 @@ char controleEstoque(void) {
 }
 
 void deletarReceita(void) {
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -311,7 +311,7 @@ void deletarReceita(void) {
 }
 char relatorios(void){
 	char op;
-	system("cls");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -348,7 +348,7 @@ char relatorios(void){
 }
 
 void menuSobre(void) {
-    system("cls");
+	limpaTela();
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");
@@ -381,7 +381,7 @@ void menuSobre(void) {
 }
 
 void fimProg(void){
-	system("cls");
+	limpaTela();
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
 	printf("///          ===================================================          ///\n");

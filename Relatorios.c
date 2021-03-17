@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Relatorios.h"
+#include "limpaTela.h"
 /////Exemplo de como a função funcionará
 void relatorioPratos(void){
-	system("clear");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -36,7 +37,7 @@ void relatorioPratos(void){
 }
 
 void relatorioPrecos(void){
-	system("clear");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -69,7 +70,7 @@ void relatorioPrecos(void){
 }
 
 void relatorioSaida(void){
-	system("clear");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -102,7 +103,7 @@ void relatorioSaida(void){
 }
 
 void relatorioIngredientes(void){
-	system("clear");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -135,7 +136,7 @@ void relatorioIngredientes(void){
 }
 
 void relatorioCategoria(void){
-	system("clear");
+	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
