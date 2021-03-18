@@ -5,3 +5,5 @@ void limpaTela(void){
 
 	}
 }
+
+///Autor dessa função: Prof.Flavius
