@@ -4,6 +4,9 @@
 #include "limpaTela.h"
 /////Exemplo de como a função funcionará
 void relatorioPratos(void){
+	char nome[101] = "#Feijoada";
+	char nome1[101] = "#Lasanha";
+	char nome2[101] = "#Yakisoba";
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -24,9 +27,12 @@ void relatorioPratos(void){
 	printf("///                                                                       ///\n");
 	printf("///                         Nomes dos Pratos                              ///\n");
 	printf("///-----------------------------------------------------------------------///\n");
-	printf("///    #Feijoada                                                          ///\n");
-	printf("///    #Lasanha                                                           ///\n");
-	printf("///    #Yakisoba                                                          ///\n");
+	for(int i = 0;i <1;i++){
+		
+		printf("///    %s                                                          ///\n", nome);
+		printf("///    %s                                                           ///\n", nome1);
+		printf("///    %s                                                          ///\n", nome2);
+	}
 	printf("///                                                                       ///\n");
 	printf("///    Apenas um exemplo de como funcionara a funcao.                     ///\n");
 	printf("///                  Em desenvolvimento.                                  ///\n");
@@ -37,6 +43,9 @@ void relatorioPratos(void){
 }
 
 void relatorioPrecos(void){
+	char pr[] = "#R$ 100.00";
+	char pr2[] = "#R$ 89.90 ";
+	char pr3[] = "#R$ 80.50";
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -57,9 +66,12 @@ void relatorioPrecos(void){
 	printf("///                                                                       ///\n");
 	printf("///                         Precos dos Pratos                             ///\n");
 	printf("///-----------------------------------------------------------------------///\n");
-	printf("///    #R$ 100.00                                                         ///\n");
-	printf("///    #R$ 89.90                                                          ///\n");
-	printf("///    #R$ 80.50                                                          ///\n");
+	for(int i = 0;i <1;i++){
+		
+		printf("///    %s                                                         ///\n", pr);
+		printf("///    %s                                                         ///\n", pr2);
+		printf("///    %s                                                          ///\n", pr3);
+	}
 	printf("///                                                                       ///\n");
 	printf("///    Apenas um exemplo de como funcionara a funcao.                     ///\n");
 	printf("///                  Em desenvolvimento.                                  ///\n");
@@ -70,6 +82,17 @@ void relatorioPrecos(void){
 }
 
 void relatorioSaida(void){
+	char nome[101] = "#Feijoada";
+	char nome1[101] = "#Lasanha";
+	char nome2[101] = "#Yakisoba";
+
+	char pr[101] = "R$ 10.00";
+	char pr1[101] = "R$ 12.50";
+	char pr2[101] = "R$ 20.00";
+
+	char kg[101] = "2.900 Kg";
+	char kg1[101] = "2.000 Kg";
+	char kg2[101] = "1.000 Kg";
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -90,9 +113,18 @@ void relatorioSaida(void){
 	printf("///                                                                       ///\n");
 	printf("///                   Valores gastos por ingrediente                      ///\n");
 	printf("///-----------------------------------------------------------------------///\n");
-	printf("///    #Feijão - R$ 10.00 por 2.000KG                                     ///\n");
-	printf("///    #Arroz  - R$ 12.50 por 2.000KG                                     ///\n");
-	printf("///    #Carne  - R$ 20.00 por 1.000KG                                     ///\n");
+	for(int i = 0;i <1;i++){
+		
+		printf("///    %s- ", nome);
+		printf("%s por ",pr);
+		printf("%s                                   ///\n",kg);
+		printf("///    %s- ", nome1);
+		printf("%s por ",pr1);
+		printf("%s                                    ///\n",kg1);
+		printf("///    %s- ", nome2);
+		printf("%s por ",pr2);
+		printf("%s                                   ///\n",kg2);
+	}
 	printf("///                                                                       ///\n");
 	printf("///    Apenas um exemplo de como funcionara a funcao.                     ///\n");
 	printf("///                  Em desenvolvimento.                                  ///\n");
@@ -103,6 +135,9 @@ void relatorioSaida(void){
 }
 
 void relatorioIngredientes(void){
+	char nome[101] = "#Feijão";
+	char nome1[101] = "#Arroz";
+	char nome2[101] = "#Carne";
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -123,10 +158,12 @@ void relatorioIngredientes(void){
 	printf("///                                                                       ///\n");
 	printf("///                  Nomes dos Ingredientes                               ///\n");
 	printf("///-----------------------------------------------------------------------///\n");
-	printf("///    #Feijão                                                            ///\n");
-	printf("///    #Arroz                                                             ///\n");
-	printf("///    #Carne                                                             ///\n");
-	printf("///                                                                       ///\n");
+	for(int i = 0;i <1;i++){
+		
+		printf("///    %s                                                            ///\n", nome);
+		printf("///    %s                                                             ///\n", nome1);
+		printf("///    %s                                                             ///\n", nome2);
+	}
 	printf("///    Apenas um exemplo de como funcionara a funcao.                     ///\n");
 	printf("///                  Em desenvolvimento.                                  ///\n");
 	printf("///                                                                       ///\n");
@@ -136,6 +173,9 @@ void relatorioIngredientes(void){
 }
 
 void relatorioCategoria(void){
+	char nome[101] = "#Doces";
+	char nome1[101] = "#Salgados";
+	char nome2[101] = "#Comida japonesa";
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -156,9 +196,12 @@ void relatorioCategoria(void){
 	printf("///                                                                       ///\n");
 	printf("///                     Nome das Categorias                               ///\n");
 	printf("///-----------------------------------------------------------------------///\n");
-	printf("///    #Doces                                                             ///\n");
-	printf("///    #Salgados                                                          ///\n");
-	printf("///    #Comida japonesa                                                   ///\n");
+	for(int i = 0;i <1;i++){
+		
+		printf("///    %s                                                             ///\n", nome);
+		printf("///    %s                                                          ///\n", nome1);
+		printf("///    %s                                                   ///\n", nome2);
+	}
 	printf("///                                                                       ///\n");
 	printf("///    Apenas um exemplo de como funcionara a funcao.                     ///\n");
 	printf("///                  Em desenvolvimento.                                  ///\n");
