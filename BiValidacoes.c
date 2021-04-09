@@ -88,3 +88,12 @@ float validaPreco(float pre[]){
   }
 	return 1;
 }
+
+int valQuant(int quant){
+	if(quant > 0){
+		return 1;
+	}else{
+		return 0;
+	}
+	return 1;
+}

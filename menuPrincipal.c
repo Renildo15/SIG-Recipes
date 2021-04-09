@@ -6,10 +6,29 @@
 #include "validaNome.h"
 #include "Preco.h"
 #include "limpaTela.h"
+#include "valQuant.h"
+
+typedef struct prato Prato;
+typedef struct ingredientes Ingredientes;
+
+struct prato{
+	char nomePrato[21];
+	char Ingredientes[101];
+	char pre[11];
+	float preco;
+	char categoria[21];
+	int quant;
+};
+
+struct ingredientes{
+	char preparo[101];
+	char quan[11];
+	float Kg;
+};
 
 char menuPrincipal (void){
-	char op;
 	limpaTela();
+	char op;
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -50,18 +69,12 @@ char menuPrincipal (void){
 
 
 void cadastrarReceita(void){
-	char nomePrato[21];
-	char Ingredientes[51];
-	char preparo[101];
-	char pre[11];
-	float preco;
+	limpaTela();
+	Prato prato;
+	Ingredientes ingre;
 	float valPre;
-	char categoria[21];
-	char quant[11];
-	float Kg;
 	int op;
 
-	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -79,93 +92,88 @@ void cadastrarReceita(void){
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
 	printf("///             Nome do prato: ");
-	scanf("%[^\n]", nomePrato);
+	scanf("%20[^\n]", prato.nomePrato);
 	getchar();
 
-	while (!validaNome(nomePrato)){
-		printf("\n///             Invalido                                                  ///\n");	
-		printf("\n///             Tente novamente!                                          ///\n");
-		printf("\n///             Nome do prato: ");
-		scanf("%[^\n]", nomePrato);
+	while (!validaNome(prato.nomePrato)){
+		printf("///             Nome do prato: Invalido                                   ///\n");	
+		printf("///             Nome do prato: ");
+		scanf("%20[^\n]", prato.nomePrato);
 		getchar();
 	}
-
-	do{
-			printf("///             Ingredientes: ");
-			scanf("%[^\n]", Ingredientes);
-			getchar();
-			while (!validaNome(Ingredientes)){
-				printf("\n///             Invalido                                                  ///\n");	
-				printf("\n///             Tente novamente!                                          ///\n");
-				printf("///             Ingredientes: ");
-				scanf("%[^\n]", Ingredientes);
-				getchar();
-
-			}
-			printf("///             Kg/Gramas: ");
-			scanf("%s",quant);
-			setbuf(stdin,NULL);
-			Kg = atof(quant);
-			ValidaQuant(Kg);
-			while (!Kg){
-				printf("///             Invalido                                                  ///\n");
-				printf("///             Kg/Gramas: ");
-				scanf("%s",quant);
-				setbuf(stdin,NULL);
-				Kg = atof(quant);
-				ValidaQuant(Kg);
-			}
-			printf("\n///             1-Continuar                                               ///");
-			printf("\n///             0-Sair                                                    ///");
-			printf("\n///             Resposta:   ");
-			scanf(" %d",&op);
-			getchar();
-			while(op > 1 || op < 0){
-				printf("\n///             Invalido                                                  ///\n");	
-				printf("\n///             Tente novamente!                                          ///\n");
-				printf("\n///             1-Continuar                                               ///");
-				printf("\n///             0-Sair                                                    ///");
-				printf("\n///             Resposta:   ");
-				scanf(" %d",&op);
-				getchar();
-			}
-			printf("///             %.3f Kg                                                  ///\n",Kg);
-	}while(op!=0);
-	printf("///             Modo de preparo: ");
-	scanf("%[^\n]",preparo);
+	printf("///             Quantidade de ingredientes:");
+	scanf("%i",&prato.quant);
 	getchar();
-	while(!validaNome(preparo)){
-		printf("\n///             Invalido                                                  ///\n");	
-		printf("\n///             Tente novamente!                                          ///\n");
+	valQuant(prato.quant);
+	while(!valQuant(prato.quant)){
+			printf("///             Quantidade de ingredientes:Invalido!                     ///\n");
+			printf("///             Quantidade de ingredientes:");
+			scanf("%i",&prato.quant);
+			getchar();
+			valQuant(prato.quant);
+			
+		}
+	for(int i = 0; i < prato.quant;++i){
+		printf("///             Ingredientes: ");
+		scanf("%100[^\n]", prato.Ingredientes);
+		getchar();
+		while (!validaNome(prato.Ingredientes)){
+			printf("///             Ingredientes: Invalido                                    ///\n");	
+			printf("///             Ingredientes: ");
+			scanf("%[^\n]", prato.Ingredientes);
+			getchar();
+
+		}
+		printf("///             Kg/Gramas: ");
+		scanf("%10[^\n]",ingre.quan);
+		setbuf(stdin,NULL);
+		ingre.Kg = atof(ingre.quan);
+		ValidaQuant(ingre.Kg);
+		while (!ingre.Kg){
+			printf("///             Kg/Gramas: Invalido                                      ///\n");
+			printf("///             Kg/Gramas: ");
+			scanf("%10[^\n]",ingre.quan);
+			setbuf(stdin,NULL);
+			ingre.Kg = atof(ingre.quan);
+			ValidaQuant(ingre.Kg);
+		}
+	}
+	printf("///             %.3f Kg                                                  ///\n",ingre.Kg);
+	printf("///             Modo de preparo: ");
+	scanf("%100[^\n]",ingre.preparo);
+	getchar();
+	while(!validaNome(ingre.preparo)){
+		printf("///             Modo de preparo: Invalido                                 ///\n");	
+		
 		printf("///             Modo de preparo: ");
-		scanf("%[^\n]",preparo);
+		scanf("%100[^\n]",ingre.preparo);
 		getchar();
 
 	}
 	printf("///             Preco: ");
-	scanf("%s",pre);
+	scanf("%s",prato.pre);
 	setbuf(stdin,NULL);
-	preco = atof(pre);
-	valPre = validaPreco(&preco);
+	prato.preco = atof(prato.pre);
+	valPre = validaPreco(&prato.preco);
 
 	while(!valPre){
 		printf("///             Preco: ");
-		scanf("%f",&preco);
+		scanf("%f",&prato.preco);
 		setbuf(stdin,NULL);
-		valPre = validaPreco(&preco);
+		valPre = validaPreco(&prato.preco);
 		setbuf(stdin,NULL);
 
 	}
-	printf("///             R$ %.2f                                                   ///\n",preco);
+	printf("///             R$ %.2f                                                   ///\n",prato.preco);
 	getchar();
 	printf("///             Categoria: ");
-	scanf("%[^\n]", categoria);
+	scanf("%[^\n]", prato.categoria);
 	getchar();
-	while(!validaNome(categoria)){
-		printf("\n///             Invalido                                                  ///\n");	
+	while(!validaNome(prato.categoria)){
+		printf("\n///             Preco: Invalido                                           ///\n");	
 		printf("\n///             Tente novamente!                                          ///\n");
 		printf("///             Categoria: ");
-		scanf("%[^\n]", categoria);
+		scanf("%[^\n]", prato.categoria);
 		getchar();
 	}
 	printf("///                                                                       ///\n");
@@ -176,8 +184,8 @@ void cadastrarReceita(void){
 }
 
 char consultarReceita(void) {
-	char op;
 	limpaTela();
+	char op;
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -212,8 +220,8 @@ char consultarReceita(void) {
 }
 
 char consultarPreco(void){
-	char op;
 	limpaTela();
+	char op;
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -248,8 +256,8 @@ char consultarPreco(void){
 }
 
 char controleEstoque(void) {
-	char op;
 	limpaTela();
+	char op;
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -309,9 +317,10 @@ void deletarReceita(void) {
 	getchar();
 
 }
+
 char relatorios(void){
-	char op;
 	limpaTela();
+	char op;
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("///                                                                       ///\n");
@@ -347,8 +356,163 @@ char relatorios(void){
 	return op;
 }
 
-void menuSobre(void) {
+void relatorioPratos(void){
+	char nome[101] = "#Feijoada";
+	char nome1[101] = "#Lasanha";
+	char nome2[101] = "#Yakisoba";
 	limpaTela();
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =     Relatorio dos Pratos    = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                         Nomes dos Pratos                              ///\n");
+	printf("///-----------------------------------------------------------------------///\n");
+	for(int i = 0;i <1;i++){
+		
+		printf("///    %s                                                          ///\n", nome);
+		printf("///    %s                                                           ///\n", nome1);
+		printf("///    %s                                                          ///\n", nome2);
+	}
+	printf("///                                                                       ///\n");
+	printf("///    Apenas um exemplo de como funcionara a funcao.                     ///\n");
+	printf("///                  Em desenvolvimento.                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	getchar();
+}
+
+void relatorioPrecos(void){
+	char pr[] = "#R$ 100.00";
+	char pr2[] = "#R$ 89.90 ";
+	char pr3[] = "#R$ 80.50";
+	limpaTela();
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =     Relatorio de Precos     = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                         Precos dos Pratos                             ///\n");
+	printf("///-----------------------------------------------------------------------///\n");
+	for(int i = 0;i <1;i++){
+		
+		printf("///    %s                                                         ///\n", pr);
+		printf("///    %s                                                         ///\n", pr2);
+		printf("///    %s                                                          ///\n", pr3);
+	}
+	printf("///                                                                       ///\n");
+	printf("///    Apenas um exemplo de como funcionara a funcao.                     ///\n");
+	printf("///                  Em desenvolvimento.                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	getchar();
+}
+
+void relatorioIngredientes(void){
+	char nome[101] = "#Feijão";
+	char nome1[101] = "#Arroz";
+	char nome2[101] = "#Carne";
+	limpaTela();
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =  Relatorio dos Ingredientes = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                  Nomes dos Ingredientes                               ///\n");
+	printf("///-----------------------------------------------------------------------///\n");
+	for(int i = 0;i <1;i++){
+		
+		printf("///    %s                                                            ///\n", nome);
+		printf("///    %s                                                             ///\n", nome1);
+		printf("///    %s                                                             ///\n", nome2);
+	}
+	printf("///    Apenas um exemplo de como funcionara a funcao.                     ///\n");
+	printf("///                  Em desenvolvimento.                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	getchar();
+}
+
+void relatorioCategoria(void){
+	char nome[101] = "#Doces";
+	char nome1[101] = "#Salgados";
+	char nome2[101] = "#Comida japonesa";
+	limpaTela();
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =   Relatorio das categorias  = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("///                     Nome das Categorias                               ///\n");
+	printf("///-----------------------------------------------------------------------///\n");
+	for(int i = 0;i <1;i++){
+		
+		printf("///    %s                                                             ///\n", nome);
+		printf("///    %s                                                          ///\n", nome1);
+		printf("///    %s                                                   ///\n", nome2);
+	}
+	printf("///                                                                       ///\n");
+	printf("///    Apenas um exemplo de como funcionara a funcao.                     ///\n");
+	printf("///                  Em desenvolvimento.                                  ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	getchar();
+}
+
+void menuSobre(void) {
+		limpaTela();
     printf("\n");
     printf("///////////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                         ///\n");

@@ -1,0 +1,1 @@
+int valQuant(int quant);
