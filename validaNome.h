@@ -1,1 +1,0 @@
-int validaNome(char nome[]);

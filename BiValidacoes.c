@@ -35,10 +35,13 @@ int validacao (int dia, int mes, int ano){
 
 // Codigo baseado e modificado a partir do codigo do Prof.Flavius.
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 int validaNome(char nome[]){
 	int tam;
 	tam = strlen(nome);
-	if(tam == 0){
+	//printf("Tamanho: %i\n",tam);
+	if(tam == 0  || tam == 1){
 		return 0;
 	}
 	for(int i = 0;i < tam; i++){
@@ -96,4 +99,12 @@ int valQuant(int quant){
 		return 0;
 	}
 	return 1;
+}
+
+#include <stdlib.h>
+
+void limpaTela(void){
+	if(system("clear") || system("cls")){
+
+	}
 }

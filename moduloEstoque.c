@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ControledeEstoque.h"
-#include "Data.h"
-#include "ValidaQuant.h"
-#include "validaNome.h"
-#include "Preco.h"
-#include "limpaTela.h"
+#include "moduloEstoque.h"
+#include "Relatorios.h"
+#include "valid.h"
+
 
 typedef struct data Data;
 typedef struct produto Produto;
@@ -17,19 +15,99 @@ struct data{
 };
 
 struct produto{
-	char produto[21];
+	char Nomeproduto[21];
 	char pre[11];
 	float preco;
 	char quant[11];
 	float Kg;
+	Data vali;
 };
 
+void moduloEstoque(Produto* nom){
+	char opcao;
+	do{
+		opcao = menuEstoque();
+		switch (opcao)
+		{
+			case '1':cadastrarProduto();
+						break;
+		
+			case '2':analisarEstoque();
+						break;
+
+			case '3':reabastecerEstoque();
+							
+						break;
+
+			case '4': relatorioSaida(nom);
+				break;
+		}
+	}while(opcao!='0');
+}
+
+
 void cadastrarProduto(void){
-	Data data;
-	Produto prod;
+	Produto* prod;
+	
+	prod = TelacadastrarProduto();
+
+	gravarProduto(prod);
+
+	free(prod);
+}
+
+void analisarEstoque(void){
+	Produto* prod;
+
+	TelaanalisarEstoque(prod);
+}
+
+void reabastecerEstoque(void){
+	cadastrarProduto();
+}
+
+char menuEstoque(void) {
+	limpaTela();
+	char op;
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =        Menu Estoque         = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           1. Cadastrar produto                                        ///\n");
+	printf("///           2. Analisar estoque                                         ///\n");
+	printf("///           3. Reabastecer o estoque                                    ///\n");
+	printf("///           4. Relatorio de saida                                       ///\n");
+	printf("///           0. Sair                                                     ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Escolha a opção desejada: ");
+	scanf("%c", &op);
+	getchar();
+	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n"); 
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	return op;
+}
+
+Produto* TelacadastrarProduto(void){
+	Produto* prod;
 	int dataValida;
 	float valPre;
-	
+	prod = (Produto*) malloc(sizeof(Produto));
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -47,79 +125,87 @@ void cadastrarProduto(void){
 	printf("///           = = = = =      Cadastrar produto      = = = = =             ///\n");
 	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///             Nome do produto: ");
-	scanf("%20[^\n]", prod.produto);
+	printf("///             Nome do Produto: ");
+	scanf("%20[^\n]", prod->Nomeproduto);
 	getchar();
 
-	while(!validaNome(prod.produto)){
-		printf("///             Nome do produto: Invalido                                 ///\n");	
+	while (!validaNome(prod->Nomeproduto)){
+		printf("///             Nome do produto: Invalido                                  ///\n");	
 		printf("///             Nome do produto: ");
-		scanf("%20[^\n]", prod.produto);
+		scanf("%20[^\n]", prod->Nomeproduto);
 		getchar();
 	}
 	printf("///             Data de Validade: \n");
 	printf("///             Dia: ");
-	scanf("%d", &data.dia);
+	scanf("%d", &prod->vali.dia);
+	getchar();
 	printf("///             Mês: ");
-	scanf("%d", &data.mes);
+	scanf("%d", &prod->vali.mes);
+	getchar();
 	printf("///             Ano: ");
-	scanf("%d", &data.ano);
-	setbuf(stdin,NULL);
-	dataValida = validacao (data.dia,data.mes,data.ano);
+	scanf("%d", &prod->vali.ano);
+	getchar();
+	dataValida = validacao (prod->vali.dia,prod->vali.mes,prod->vali.ano);
 	
 	while(!dataValida){
 		
 		printf("///             Data de Validade: invalido                                ///\n");	
 		printf("///             Dia: ");
-		scanf("%d", &data.dia);
+		scanf("%d",  &prod->vali.dia);
+		getchar();
 		printf("///             Mês: ");
-		scanf("%d", &data.mes);
+		scanf("%d",&prod->vali.mes);
+		getchar();
 		printf("///             Ano: ");
-		scanf("%d", &data.ano);
-		setbuf(stdin,NULL);
-		data.dia = (int)data.dia ;data.mes=(int)data.mes; data.ano = (int)data.ano;
-		dataValida = validacao (data.dia,data.mes,data.ano);
+		scanf("%d", &prod->vali.ano);
+		getchar();
+		prod->vali.dia = (int)prod->vali.dia ;prod->vali.mes=(int)prod->vali.mes; prod->vali.ano = (int)prod->vali.ano;
+		dataValida = validacao (prod->vali.dia,prod->vali.mes,prod->vali.ano);
 	}
-	// printf("///             %02d/%02d/%d                                               ///\n", data.dia, data.mes, data.ano);
-	// printf("///             Valido                                                     ///\n");
 	printf("///             Valor Pago: ");
-	scanf("%10[^\n]",prod.pre);
-	setbuf(stdin,NULL);
-	prod.preco = atof(prod.pre);
-	valPre = validaPreco(&prod.preco);
+	scanf("%10[^\n]",prod->pre);
+	getchar();
+	prod->preco = atof(prod->pre);
+	valPre = validaPreco(&prod->preco);
 
 	while(!valPre){
 		printf("///             Valor Pago: ");
-		scanf("%f",&prod.preco);
-		setbuf(stdin,NULL);
-		valPre = validaPreco(&prod.preco);
+		scanf("%f",&prod->preco);
+		getchar();
+		valPre = validaPreco(&prod->preco);
 
 	}
 
-	// printf("///             R$ %.2f                                                   ///\n",prod.preco);
 	printf("///             Kg/Gramas: ");
-	scanf("%10[^\n]",prod.quant);
-	setbuf(stdin,NULL);
-	prod.Kg = atof(prod.quant);
-	ValidaQuant(prod.Kg);
-	while (!prod.Kg){
+	scanf("%10[^\n]",prod->quant);
+	getchar();
+	prod->Kg = atof(prod->quant);
+	ValidaQuant(prod->Kg);
+	while (!prod->Kg){
 				printf("///             Kg/Gramas: Invalido                                      ///\n");
 				printf("///             Kg/Gramas: ");
-				scanf("%10[^\n]",prod.quant);
-				setbuf(stdin,NULL);
-				prod.Kg = atof(prod.quant);
-				ValidaQuant(prod.Kg);
+				scanf("%10[^\n]",prod->quant);
+				getchar();
+				prod->Kg = atof(prod->quant);
+				ValidaQuant(prod->Kg);
 
 	}
-	// printf("///             %.3f Kg                                                  ///\n",prod.Kg);
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+
+	return prod;
 }
 
-void analisarEstoque(void){
+
+
+void TelaanalisarEstoque(Produto* est){
+	if(est == NULL){
+			printf("///                     Não existe esse dado                               ///\n");
+	}
+	char situacao [11];
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -139,51 +225,22 @@ void analisarEstoque(void){
 	printf("///                                                                       ///\n");
 	printf("///                        Produtos estocados                             ///\n");
 	printf("///                                                                       ///\n");
+	printf("///                                                                       ///\n");
+	printf("/// # Nome:%s                                                             ///\n",est->Nomeproduto);
+	printf("/// # Data de validade: %02d/%02d/%d                                      ///\n",est->vali.dia,est->vali.mes,est->vali.ano);
+	printf("/// # Valor pago:R$ %.2f                                                  ///\n",est->preco);
+	printf("/// # Kg/gramas: %.3f                                                     ///\n",est->Kg);
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
 	getchar();
+	////// em desenvolvimento
 
 }
 
-void reabastecerEstoque(void){
-	limpaTela();
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = =     Reabastecer estoque     = = = = =             ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///                                                                       ///\n");
-	printf("///           Nome do produto que está em falta:                          ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
-	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-}
 
-void relatorioSaida(void){
-	char nome[101] = "#Feijoada";
-	char nome1[101] = "#Lasanha";
-	char nome2[101] = "#Yakisoba";
 
-	char pr[101] = "R$ 10.00";
-	char pr1[101] = "R$ 12.50";
-	char pr2[101] = "R$ 20.00";
-
-	char kg[101] = "2.900 Kg";
-	char kg1[101] = "2.000 Kg";
-	char kg2[101] = "1.000 Kg";
+void relatorioSaida(Produto* sai){
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -203,25 +260,27 @@ void relatorioSaida(void){
 	printf("///                                                                       ///\n");
 	printf("///                                                                       ///\n");
 	printf("///                   Valores gastos por ingrediente                      ///\n");
-	printf("///-----------------------------------------------------------------------///\n");
-	for(int i = 0;i <1;i++){
-		
-		printf("///    %s- ", nome);
-		printf("%s por ",pr);
-		printf("%s                                   ///\n",kg);
-		printf("///    %s- ", nome1);
-		printf("%s por ",pr1);
-		printf("%s                                    ///\n",kg1);
-		printf("///    %s- ", nome2);
-		printf("%s por ",pr2);
-		printf("%s                                   ///\n",kg2);
-	}
+	printf("///-----------------------------------------------------------------------///\n");	
+	printf("///  # Saida:%s -> ", sai->Nomeproduto);
+	printf("%.3f Kg/gramas por ",sai->Kg);
+	printf("R$%.2f                             ///\n",sai->preco);
 	printf("///                                                                       ///\n");
-	printf("///    Apenas um exemplo de como funcionara a funcao.                     ///\n");
-	printf("///                  Em desenvolvimento.                                  ///\n");
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	printf("\n");
 	getchar();
+	////// em desenvolvimento
 }
 
+void gravarProduto(Produto* pro){
+	FILE* fp;
+	fp = fopen("Produtos.dat","ab");
+	if(fp == NULL){
+		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+		exit(1);
+	}
+
+	fwrite(pro, sizeof(Produto),1,fp);
+	fclose(fp);
+}
