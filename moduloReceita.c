@@ -26,6 +26,7 @@ void moduloReceitas(void){
 						break;
 
 			case '5':deletar();
+						break;
 		}
 
 	}while(opcao!= '0');
