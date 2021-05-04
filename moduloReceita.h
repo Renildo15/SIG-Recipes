@@ -8,7 +8,7 @@ void gravarReceita(Prato* Rec);
 void exibirTudo(Prato* Re);
 void deletarReceita (Prato* Rec);
 char relatorios(void);
-
+Prato* pesquisarCategoria(char* nom);
 typedef struct prato Prato;
 void moduloPrecos(void);
 void TelaexibirTabela (void);

@@ -39,11 +39,15 @@ void precoporPrato(void){
 	exibirTudo(prato);
 
 }
-// void exibirTabela(void){
-// 	Prato* prato;
-// 	TelaexibirTabela(prato);
-// ///// em desenvolvimento
-// }
+void precoCategoria(void){
+	Prato* prato;
+	char* preCat;
+	preCat = TelaprecoCategoria();
+
+	prato = pesquisarCate(preCat);
+
+	exibirTudo(prato);
+}
 
 
 char menuPreco(void){
@@ -82,6 +86,36 @@ char menuPreco(void){
 	return op;
 }
 
+char* TelaprecoCategoria(void){
+	char* cate;
+	cate = (char*) malloc(sizeof(char));
+	limpaTela();
+	printf("\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///           = = = = =     Preço por Categoria     = = = = =             ///\n");
+	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+	printf("///                                                                       ///\n");
+	printf("///           Nome da categoria: ");
+	scanf("%20[^\n]",cate);
+	getchar();
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("\n");
+	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
+	getchar();
+	return cate;
+	}
 
 
 
@@ -135,6 +169,32 @@ Prato* pesquisaPre(char* nom){
 		if(strcmp(nomPre->nomePrato, nom) == 0){
 			fclose(fp);
 			return nomPre;
+		}
+	}
+
+	fclose(fp);
+	return NULL;
+}
+
+
+
+Prato* pesquisarCate(char* nom){
+	FILE* fp;
+	Prato* nomCat;
+
+	nomCat = (Prato*) malloc(sizeof(Prato));
+	fp = fopen("Receitas.dat","rb");
+	if(fp == NULL){
+		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+	}
+
+	while(!feof(fp)){
+		fread(nomCat,sizeof(Prato),1,fp);
+		if(strcmp(nomCat->categoria, nom) == 0){
+			fclose(fp);
+			return nomCat;
 		}
 	}
 
