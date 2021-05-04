@@ -3,6 +3,7 @@
 #include "moduloEstoque.h"
 #include "Relatorios.h"
 #include "valid.h"
+#include "string.h"
 
 
 typedef struct data Data;
@@ -21,10 +22,14 @@ struct produto{
 	char quant[11];
 	float Kg;
 	Data vali;
+	char status[1];
+	struct produto* prox;
 };
 
 void moduloEstoque(Produto* nom){
 	char opcao;
+	Produto* lista;
+	lista = NULL;
 	do{
 		opcao = menuEstoque();
 		switch (opcao)
@@ -32,15 +37,12 @@ void moduloEstoque(Produto* nom){
 			case '1':cadastrarProduto();
 						break;
 		
-			case '2':analisarEstoque();
+			case '2':RelaProdutos();
 						break;
 
-			case '3':reabastecerEstoque();
-							
+			case '3': RelatorioSaida();
+			
 						break;
-
-			case '4': relatorioSaida(nom);
-				break;
 		}
 	}while(opcao!='0');
 }
@@ -56,15 +58,6 @@ void cadastrarProduto(void){
 	free(prod);
 }
 
-void analisarEstoque(void){
-	Produto* prod;
-
-	TelaanalisarEstoque(prod);
-}
-
-void reabastecerEstoque(void){
-	cadastrarProduto();
-}
 
 char menuEstoque(void) {
 	limpaTela();
@@ -87,8 +80,7 @@ char menuEstoque(void) {
 	printf("///                                                                       ///\n");
 	printf("///           1. Cadastrar produto                                        ///\n");
 	printf("///           2. Analisar estoque                                         ///\n");
-	printf("///           3. Reabastecer o estoque                                    ///\n");
-	printf("///           4. Relatorio de saida                                       ///\n");
+	printf("///           3. Relatorio de saida                                       ///\n");
 	printf("///           0. Sair                                                     ///\n");
 	printf("///                                                                       ///\n");
 	printf("///           Escolha a opção desejada: ");
@@ -199,13 +191,72 @@ Produto* TelacadastrarProduto(void){
 	return prod;
 }
 
+//===============================================================================================================================================================================================================================================================================================================================================================================================///
 
-
-void TelaanalisarEstoque(Produto* est){
-	if(est == NULL){
-			printf("///                     Não existe esse dado                               ///\n");
+void gravarProduto(Produto* pro){
+	FILE* fp;
+	fp = fopen("Produtos.dat","ab");
+	if(fp == NULL){
+		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+		exit(1);
 	}
-	char situacao [11];
+
+	fwrite(pro, sizeof(Produto),1,fp);
+	fclose(fp);
+}
+
+
+Produto* PesquisaProd(char* nom){
+	FILE* fp;
+	Produto* nomIng;
+
+	nomIng = (Produto*) malloc(sizeof(Produto));
+	fp = fopen("Produtos.dat","rb");
+	if(fp == NULL){
+		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+	}
+	while(!feof(fp)){
+		fread(nomIng,sizeof(Produto),1,fp);
+		if(strcmp(nomIng->Nomeproduto,nom) == 0){
+			fclose(fp);
+			return nomIng;
+		}
+	}
+	fclose(fp);
+	return NULL;
+}
+//===============================================================================================================================================================================================================================================================//APAGAR SE DE ERRADO
+void exibeRelProd(Produto* pro){
+  	printf("/// # Nome:%s                                                             ///\n",pro->Nomeproduto);
+		printf("/// # Data de validade: %02d/%02d/%d                                      ///\n",pro->vali.dia,pro->vali.mes,pro->vali.ano);
+		// printf("/// # Valor pago:R$ %.2f                                                  ///\n",pro->preco);
+		// printf("/// # Kg/gramas: %.3f                                                     ///\n",pro->Kg);
+}
+
+void RelSaida(Produto* pro){
+  	printf("/// # Nome:%s                                                             ///\n",pro->Nomeproduto);
+		printf("/// # Valor pago:R$ %.2f                                                  ///\n",pro->preco);
+}
+
+
+
+
+
+void apagarLista(Produto **lista){
+    Produto *pro;
+    
+    while (*lista != NULL){
+   	    pro = *lista;
+        *lista = (*lista)->prox;
+        free(pro);
+    }   
+}
+void RelaProdutos(void){
+	FILE *fp;
+  Produto* pro;
 	limpaTela();
 	printf("\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
@@ -225,62 +276,65 @@ void TelaanalisarEstoque(Produto* est){
 	printf("///                                                                       ///\n");
 	printf("///                        Produtos estocados                             ///\n");
 	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("/// # Nome:%s                                                             ///\n",est->Nomeproduto);
-	printf("/// # Data de validade: %02d/%02d/%d                                      ///\n",est->vali.dia,est->vali.mes,est->vali.ano);
-	printf("/// # Valor pago:R$ %.2f                                                  ///\n",est->preco);
-	printf("/// # Kg/gramas: %.3f                                                     ///\n",est->Kg);
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
-	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-	////// em desenvolvimento
 
+	pro = (Produto*) malloc(sizeof(Produto));
+    fp = fopen("Produtos.dat", "rb");
+
+    if (fp == NULL) {
+        printf("ERRO");
+    }else{
+        while(fread(pro, sizeof(Produto), 1, fp)) {
+            if(strcmp(pro->status,"x") != 0){
+                exibeRelProd(pro);
+            }
+        }
+        printf("\n");
+        printf("////////////////////////////////////////////////////////////////////////////////////\n\n");
+        printf("\t\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+    }
+    fclose(fp);
 }
 
-
-
-void relatorioSaida(Produto* sai){
-	limpaTela();
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = =     Relatorio das Saidas     = = = = =            ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("///                   Valores gastos por ingrediente                      ///\n");
-	printf("///-----------------------------------------------------------------------///\n");	
-	printf("///  # Saida:%s -> ", sai->Nomeproduto);
-	printf("%.3f Kg/gramas por ",sai->Kg);
-	printf("R$%.2f                             ///\n",sai->preco);
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
-	getchar();
-	////// em desenvolvimento
-}
-
-void gravarProduto(Produto* pro){
+void RelatorioSaida(void){
 	FILE* fp;
-	fp = fopen("Produtos.dat","ab");
-	if(fp == NULL){
-		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-    printf("Não é possível continuar este programa...\n");
-		exit(1);
-	}
+	Produto* pro;
+		limpaTela();
+		printf("\n");
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("///                                                                       ///\n");
+		printf("///          ===================================================          ///\n");
+		printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+		printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+		printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+		printf("///          ===================================================          ///\n");
+		printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+		printf("///                                                                       ///\n");
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("///                                                                       ///\n");
+		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+		printf("///           = = = = =     Relatorio das Saidas     = = = = =            ///\n");
+		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+		printf("///                                                                       ///\n");
+		printf("///                                                                       ///\n");
+		printf("///-----------------------------------------------------------------------///\n");	
+		pro = (Produto*) malloc(sizeof(Produto));
+    fp = fopen("Produtos.dat", "rb");
 
-	fwrite(pro, sizeof(Produto),1,fp);
-	fclose(fp);
+    if (fp == NULL) {
+        printf("ERRO");
+    }else{
+        while(fread(pro, sizeof(Produto), 1, fp)) {
+            if(strcmp(pro->status,"x") != 0){
+                RelSaida(pro);
+            }
+        }
+        printf("\n");
+        printf("////////////////////////////////////////////////////////////////////////////////////\n\n");
+        printf("\t\t\t\t>>> Tecle <ENTER> para continuar...\n");
+        getchar();
+    }
+    fclose(fp);
 }
+
+

@@ -59,35 +59,7 @@ char* TelaprecoCategoria(void){
 	getchar();
 	return cate;
 	}
-	void relatorioCategoria(Prato* cat){
-	limpaTela();
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = =   Relatorio das categorias  = = = = =             ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("///                     Nome das Categorias                               ///\n");
-	printf("///-----------------------------------------------------------------------///\n");
-	printf("/// # %s                                                                   ///\n",cat->categoria);
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
-	getchar();
-	////// em desenvolvimento
-}
+
 
 char* TelabuscarporCategoria(void){
 	char* nom;

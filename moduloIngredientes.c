@@ -51,38 +51,7 @@ char* TelabuscaporIngrediente(void){
 	return ing;
 
 }
-void relatorioIngredientes(Prato* ing){
-	if( ing == NULL){
-		printf("///                        Nao existe esse preco!                         ///\n");
-	}else{
-		limpaTela();
-		printf("\n");
-		printf("/////////////////////////////////////////////////////////////////////////////\n");
-		printf("///                                                                       ///\n");
-		printf("///          ===================================================          ///\n");
-		printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-		printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
-		printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-		printf("///          ===================================================          ///\n");
-		printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
-		printf("///                                                                       ///\n");
-		printf("/////////////////////////////////////////////////////////////////////////////\n");
-		printf("///                                                                       ///\n");
-		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-		printf("///           = = = = =  Relatorio dos Ingredientes = = = = =             ///\n");
-		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-		printf("///                                                                       ///\n");
-		printf("///                                                                       ///\n");
-		printf("///                  Nomes dos ingredientes                               ///\n");
-		printf("///-----------------------------------------------------------------------///\n");
-		printf("///# %s                                                                   ///\n",ing->ingredientes);
-		printf("///                                                                       ///\n");
-		printf("/////////////////////////////////////////////////////////////////////////////\n");
-		printf("\n");
-		getchar();
-		////// em desenvolvimento
-	}
-}
+
 
 Prato* PesquisaIng(char* nom){
 	FILE* fp;

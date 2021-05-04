@@ -3,16 +3,19 @@
 #include <string.h>
 #include <ctype.h>
 #include "valid.h"
-#include "Struct.h"
+#include "Str.h"
 #include "moduloReceita.h"
 
 void moduloPrecos(void){
 	char opcao;
+	Prato* Lista;
+	Lista = NULL;
+
 	do{
 		opcao = menuPreco();
 		switch(opcao)
 		{
-			case '1':exibirTabela();
+			case '1':TelaexibirTabela();
 						break;
 
 			case '2':precoporPrato();
@@ -36,11 +39,11 @@ void precoporPrato(void){
 	exibirTudo(prato);
 
 }
-void exibirTabela(void){
-	Prato* prato;
-	TelaexibirTabela(prato);
-///// em desenvolvimento
-}
+// void exibirTabela(void){
+// 	Prato* prato;
+// 	TelaexibirTabela(prato);
+// ///// em desenvolvimento
+// }
 
 
 char menuPreco(void){
@@ -79,80 +82,9 @@ char menuPreco(void){
 	return op;
 }
 
-void relatorioPrecos(Prato* pre){
-	if( pre == NULL){
-		printf("///                        Nao existe esse preco!                         ///\n");
-	}else{
-		limpaTela();
-		printf("\n");
-		printf("/////////////////////////////////////////////////////////////////////////////\n");
-		printf("///                                                                       ///\n");
-		printf("///          ===================================================          ///\n");
-		printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-		printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
-		printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-		printf("///          ===================================================          ///\n");
-		printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
-		printf("///                                                                       ///\n");
-		printf("/////////////////////////////////////////////////////////////////////////////\n");
-		printf("///                                                                       ///\n");
-		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-		printf("///           = = = = =     Relatorio de Precos     = = = = =             ///\n");
-		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-		printf("///                                                                       ///\n");
-		printf("///                                                                       ///\n");
-		printf("///                         Precos dos Pratos                             ///\n");
-		printf("///-----------------------------------------------------------------------///\n");
-		printf("///   %s: R$%.2f                                                          ///\n",pre->nomePrato,pre->preco);
-		printf("///                                                                       ///\n");
-		printf("///                                                                       ///\n");
-		printf("/////////////////////////////////////////////////////////////////////////////\n");
-		printf("\n");
-		getchar();
-		////// em desenvolvimento
-	}
-}
 
-void TelaexibirTabela(Prato* preco ){
-	char situacao [11];
-	if(preco == NULL){
-		printf("///                     Não existe esse dado                               ///\n");
-	}else{
-		limpaTela();
-		printf("\n");
-		printf("/////////////////////////////////////////////////////////////////////////////\n");
-		printf("///                                                                       ///\n");
-		printf("///          ===================================================          ///\n");
-		printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-		printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
-		printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-		printf("///          ===================================================          ///\n");
-		printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
-		printf("///                                                                       ///\n");
-		printf("/////////////////////////////////////////////////////////////////////////////\n");
-		printf("///                                                                       ///\n");
-		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-		printf("///           = = = = =   Exibir tabela de preços   = = = = =             ///\n");
-		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-		printf("///                                                                       ///\n");
-		printf("///                               TABELA                                  ///\n");
-		printf("///                                                                       ///\n");
-		printf("///  Nome do prato: %s                                                    ///\n",preco->nomePrato);
-		printf("///  Praço: %.2f                                                          ///\n",preco->preco);
-		if(preco->status == 'D'){
-			strcpy(situacao,"Disponivel");
-		}else if(preco->status == 'I'){
-			strcpy(situacao, "Indisponivel");
-		}else{
-			strcpy(situacao,"Não informado");
-		}
-		printf("///  Status: %s                                                           ///\n",situacao);
-		printf("///                                                                       ///\n");
-		printf("/////////////////////////////////////////////////////////////////////////////\n");
-		printf("\n");
-		getchar();
-	}
-}
+
+
 
 char* TelaprecoporPrato(void){
 	char* prec;
@@ -208,4 +140,66 @@ Prato* pesquisaPre(char* nom){
 
 	fclose(fp);
 	return NULL;
+}
+//===============================================================================================================================================================================================================================================================
+
+void ExibiPreco(Prato* pro){
+  	printf("/// # Nome:%s                                                             ///\n",pro->nomePrato);
+		printf("/// # Preço:R$ %.2f                                                       ///\n",pro->preco);
+		
+		// printf("/// # Kg/gramas: %.3f                                                     ///\n",pro->Kg);
+}
+
+void apagarListaPra(Prato** lista){
+    Prato* pre;
+    
+    while (*lista != NULL){
+   	    pre = *lista;
+        *lista = (*lista)->prox;
+        free(pre);
+    }   
+}
+
+void TelaexibirTabela(void){
+	char situacao [11];
+	FILE* fp;
+	Prato* preco;
+		limpaTela();
+		printf("\n");
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("///                                                                       ///\n");
+		printf("///          ===================================================          ///\n");
+		printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+		printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
+		printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+		printf("///          ===================================================          ///\n");
+		printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+		printf("///                                                                       ///\n");
+		printf("/////////////////////////////////////////////////////////////////////////////\n");
+		printf("///                                                                       ///\n");
+		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+		printf("///           = = = = =   Exibir tabela de preços   = = = = =             ///\n");
+		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
+		printf("///                                                                       ///\n");
+		printf("///                               TABELA                                  ///\n");
+		printf("///                                                                       ///\n");
+		preco = (Prato*) malloc(sizeof(Prato));
+		fp = fopen("Receitas.dat","rb");
+		
+		if(fp == NULL){
+			printf("ERRO!");
+		}else{
+			while(fread(preco,sizeof(Prato),1,fp)){
+				if(strcmp(&preco->status,"x") != 0){
+					ExibiPreco(preco);
+				}
+			}
+			printf("///                                                                       ///\n");
+			printf("/////////////////////////////////////////////////////////////////////////////\n");
+			printf("\n");
+			getchar();
+		}
+		fclose(fp);
+		
+	
 }

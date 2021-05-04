@@ -7,6 +7,6 @@ void cadastrarProduto(void);
 void gravarProduto(Produto* pro);
 void TelaanalisarEstoque (Produto* est);
 void analisarEstoque(void);
-void reabastecerEstoque (void);
 
 
+Produto* PesquisaProd(char* nom);

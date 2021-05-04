@@ -9,7 +9,6 @@
 int menuPrincipal(void);
 void menuSobre(void);
 void fimProg(void);
-char menuRelatorio(void);
 
 
 
@@ -30,6 +29,7 @@ struct produto{
 	char quant[11];
 	float Kg;
 	Data vali;
+	struct produto* prox;
 };
 struct prato{
 	char nomePrato[21];
@@ -57,7 +57,7 @@ int main(void) {
 		opcao = menuPrincipal();
 		switch (opcao)
 		{
-		case '1':moduloReceitas();
+		case '1':moduloEstoque(prod);
 						 
 			break;
 		
@@ -65,7 +65,7 @@ int main(void) {
 					
 			break;
 
-		case '3':moduloEstoque(prod);
+		case '3':moduloReceitas();
 		    break;
 
 		case '4':moduloRelatorios();
@@ -101,9 +101,9 @@ int menuPrincipal(){
 		printf("///           = = = = = = = =  Menu Principal = = = = = = = =             ///\n");
 		printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
 		printf("///                                                                       ///\n");
-		printf("///           1. Modulo Receitas                                          ///\n");
+		printf("///           1. Modulo Estoque                                           ///\n");
 		printf("///           2. Modulo Preços                                            ///\n");
-		printf("///           3. Modulo Estoque                                           ///\n");
+		printf("///           3. Modulo Receitas                                          ///\n");
 		printf("///           4. Modulo Relatorio                                         ///\n");
 		printf("///           5. Sobre o projeto                                          ///\n");
 		printf("///           0. Encerrar o programa                                      ///\n");
@@ -120,68 +120,7 @@ int menuPrincipal(){
 		return op;
 	}
 
-	void moduloRelatorios(void){
-	char opcao;
-	do{
-		opcao = menuRelatorio();
-		switch (opcao)
-		{
-			case '1': relatorioPratos();
-
-				break;
-
-			case '2': relatorioPrecos();
-				        
-				break;
-
-			case '3': relatorioIngredientes();
-								
-				break;
-
-			case '4': relatorioCategoria();
-								
-				break;
-		}
-	}while(opcao!='0');
-}
-
-
-char menuRelatorio(void){
-	limpaTela();
-	char op;
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = =          Relatorios         = = = = =             ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///                                                                       ///\n");
-	printf("///           1. Relatorio dos pratos                                     ///\n");
-	printf("///           2. Relatorio dos precos                                     ///\n");
-	printf("///           3. Relatorio dos ingredientes                               ///\n");
-	printf("///           4. Relatorio das categorias                                 ///\n");
-	printf("///           0. Sair                                                     ///\n");
-	printf("///                                                                       ///\n");
-	printf("///           Escolha a opção desejada: ");
-	scanf("%c", &op);
-	getchar();
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
-	printf("\t\t\t>>> Tecle <ENTER> para continuar...\n");
-	getchar();
-	return op;
-}
+	
 void menuSobre(void) {
 		limpaTela();
     printf("\n");
@@ -228,4 +167,24 @@ void fimProg(void){
 	printf("///                                                                       ///\n");
 	printf("/////////////////////////////////////////////////////////////////////////////\n");
 	getchar();
+}
+
+void TeladeAviso(void){
+	limpaTela();
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	printf("///                                                                       ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          = = = =               AVISO!                = = = =          ///\n");
+	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
+	printf("///          ===================================================          ///\n");
+	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
+	printf("///                                                                       ///\n");
+	printf("/// Esse ingrediente não está cadastardo no sistema. Para poder usar este ///\n");
+	printf("/// Modulo, primeiro acesse o Modulo estoque e cadastre os ingredientes   ///\n");
+	printf("/// necessários para a receita.                                           ///\n");
+	printf("///                                                                       ///\n");
+	printf("/////////////////////////////////////////////////////////////////////////////\n");
+	getchar();
+	
 }

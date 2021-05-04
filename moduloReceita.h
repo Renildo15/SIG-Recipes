@@ -11,13 +11,15 @@ char relatorios(void);
 
 typedef struct prato Prato;
 void moduloPrecos(void);
-void TelaexibirTabela (Prato* preco);
+void TelaexibirTabela (void);
 void exibirTabela(void);
 char* TelaprecoporPrato (void);
 void precoporPrato(void);
 Prato* pesquisaPre(char* nom);
+Prato* pesquisarIngre(char* nom);
 void precoCategoria(void);
 char* TelaprecoCategoria (void);
+void TeladeAviso(void);
 
 typedef struct prato Prato;
 char* telabuscarReceita(void);
@@ -34,3 +36,4 @@ void exibirTudo(Prato* Re);
 
 
 
+void apagarListaPra(Prato** lista);

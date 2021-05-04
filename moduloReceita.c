@@ -5,6 +5,8 @@
 #include "valid.h"
 #include "Struct.h"
 #include "moduloReceita.h"
+#include "moduloEstoque.h"
+
 
 void moduloReceitas(void){
 	char opcao;
@@ -26,7 +28,6 @@ void moduloReceitas(void){
 						break;
 
 			case '5':deletar();
-						break;
 		}
 
 	}while(opcao!= '0');
@@ -115,38 +116,48 @@ Prato* preencherTelareceitas(void){
 			getchar();
 			valQuant(prato->quant);
 			
-		}
+	}
 	for(int i = 0; i < prato->quant;++i){
 		printf("///             Ingredientes: ");
-		scanf("%100[^\n]", prato->ingredientes);
+		scanf("%10[^\n]", prato->ingredientes);
+		PesquisaProd(prato->ingredientes);
 		getchar();
-		while (!validaNome(prato->ingredientes)){
-			printf("///             Ingredientes: Invalido                                    ///\n");	
-			printf("///             Ingredientes: ");
-			scanf("%[^\n]", prato->ingredientes);
-			getchar();
+			if(!PesquisaProd(prato->ingredientes)){
+				TeladeAviso();
+				return 0;
+			}else{
+					while (!validaNome(prato->ingredientes)){
+						printf("///             Ingredientes: Invalido                                    ///\n");	
+						printf("///             Ingredientes: ");
+						scanf("%[^\n]", prato->ingredientes);
+						getchar();
 
-		}
-		printf("///             Kg/Gramas: ");
-		scanf("%10[^\n]",prato->quan);
-		getchar();
-		prato->Kg = atof(prato->quan);
-		ValidaQuant(prato->Kg);
-		while (!prato->Kg){
+					}
+			}
+				
+				
+	}
+		
+					
+	printf("///             Kg/Gramas: ");
+	scanf("%10[^\n]",prato->quan);
+	getchar();
+	prato->Kg = atof(prato->quan);
+	ValidaQuant(prato->Kg);
+	while (!prato->Kg){
 			printf("///             Kg/Gramas: Invalido                                      ///\n");
 			printf("///             Kg/Gramas: ");
 			scanf("%10[^\n]",prato->quan);
 			getchar();
 			prato->Kg = atof(prato->quan);
 			ValidaQuant(prato->Kg);
-		}
 	}
 	printf("///             Modo de preparo: ");
 	scanf("%100[^\n]",prato->preparo);
 	getchar();
 	while(!validaNome(prato->preparo)){
 		printf("///             Modo de preparo: Invalido                                 ///\n");	
-		
+				
 		printf("///             Modo de preparo: ");
 		scanf("%100[^\n]",prato->preparo);
 		getchar();
@@ -164,7 +175,7 @@ Prato* preencherTelareceitas(void){
 		getchar();
 		valPre = validaPreco(&prato->preco);
 
-	};
+	}
 	printf("///             Categoria: ");
 	scanf("%20[^\n]", prato->categoria);
 	getchar();
@@ -185,36 +196,7 @@ Prato* preencherTelareceitas(void){
 	return prato;
 }
 
-void relatorioPratos(Prato* nom){
 
-	limpaTela();
-	printf("\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          = = = =         Receitas Culinárias         = = = =          ///\n");
-	printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-	printf("///          ===================================================          ///\n");
-	printf("///                Developed by  @R.Rabi - Jan, 2021                      ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("///                                                                       ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///           = = = = =     Relatorio dos Pratos    = = = = =             ///\n");
-	printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("///                         Nomes dos Pratos                              ///\n");
-	printf("///-----------------------------------------------------------------------///\n");
-	printf("///    # %s                                                               ///\n",nom->nomePrato);
-	printf("///                                                                       ///\n");
-	printf("///                                                                       ///\n");
-	printf("/////////////////////////////////////////////////////////////////////////////\n");
-	printf("\n");
-	getchar();
-	 
-}
 
 
 char menuReceitas() {
@@ -312,11 +294,13 @@ void deletarReceita(Prato* Rec) {
 				fseek(fp,-1*sizeof(Prato),SEEK_CUR);
 				fwrite(recs, sizeof(Prato),1,fp);
 				printf("\nReceita excluida com sucesso!\n");
+				getchar();
 
 			}
 		}
 		if(!achou){
 			printf("\nReceita não encontrada!\n");
+			getchar();
 		}
 		fclose(fp);
 	} 
@@ -363,6 +347,28 @@ Prato* pesquisarReceita(char* nom){
 	return NULL;
 }
 
+Prato* pesquisarIngre(char* nom){
+	FILE* fp;
+	Prato* nomPro;
+	nomPro = (Prato*) malloc(sizeof(Prato));
+
+	fp = fopen("Produtos.dat","rb");
+	if(fp == NULL){
+		printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+		exit(1);
+	}
+
+	while(!feof(fp)){
+		fread(nomPro,sizeof(Prato),1,fp);
+		if(strcmp(nomPro->nomePrato,nom) == 0 && (nomPro->status != 'x')){
+			fclose(fp);
+			return nomPro;
+		}
+	}
+	fclose(fp);
+	return NULL;
+}
 
 void exibirTudo(Prato* Re){
 	char situacao[21];
