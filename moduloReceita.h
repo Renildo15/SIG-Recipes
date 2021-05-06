@@ -37,3 +37,4 @@ void exibirTudo(Prato* Re);
 
 
 void apagarListaPra(Prato** lista);
+void ExibiPreco(Prato* pro);

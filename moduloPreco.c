@@ -203,22 +203,6 @@ Prato* pesquisarCate(char* nom){
 }
 //===============================================================================================================================================================================================================================================================
 
-void ExibiPreco(Prato* pro){
-  	printf("/// # Nome:%s                                                             ///\n",pro->nomePrato);
-		printf("/// # Preço:R$ %.2f                                                       ///\n",pro->preco);
-		
-		// printf("/// # Kg/gramas: %.3f                                                     ///\n",pro->Kg);
-}
-
-void apagarListaPra(Prato** lista){
-    Prato* pre;
-    
-    while (*lista != NULL){
-   	    pre = *lista;
-        *lista = (*lista)->prox;
-        free(pre);
-    }   
-}
 
 void TelaexibirTabela(void){
 	char situacao [11];
@@ -262,4 +246,21 @@ void TelaexibirTabela(void){
 		fclose(fp);
 		
 	
+}
+
+void ExibiPreco(Prato* pro){
+  	printf("/// # Nome:%s                                                             ///\n",pro->nomePrato);
+	printf("/// # Preço:R$ %.2f                                                       ///\n",pro->preco);
+		
+		// printf("/// # Kg/gramas: %.3f                                                     ///\n",pro->Kg);
+}
+
+void apagarListaPra(Prato** lista){
+    Prato* pre;
+    
+    while (*lista != NULL){
+   	    pre = *lista;
+        *lista = (*lista)->prox;
+        free(pre);
+    }   
 }

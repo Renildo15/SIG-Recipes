@@ -180,6 +180,7 @@ void relatorioPrecos(void){
 }
 
 void ExibiPre(Prato* pro){
+	printf("/// # Nome:  %s                                                              ///\n",pro->nomePrato);
   	printf("/// # Preço: R$%0.2f                                                        ///\n",pro->preco);
 }
 		
